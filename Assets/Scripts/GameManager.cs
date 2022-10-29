@@ -40,6 +40,9 @@ public class GameManager : MonoBehaviour
 
     void HandleCrash() {
         crashes++;
+        if (crashes >= 3) {
+            // TODO: sadness :(
+        }
     }
     void IncReputation() {
         reputation++;

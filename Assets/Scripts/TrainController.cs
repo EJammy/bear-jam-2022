@@ -38,8 +38,7 @@ public class TrainController : MonoBehaviour
         {
             Pos = Pos.MoveDir(nextDir);
 
-#warning only works if dir works in clockwise
-            prevDir = (nextDir + 2) % 4;
+            prevDir = Coords.OppDir(nextDir);
 
             // TODO: set next dir
             moveCD = timeBetweenMove;

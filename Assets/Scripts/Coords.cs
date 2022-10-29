@@ -33,4 +33,17 @@ public readonly struct Coords
         if (dir == 3) return new Coords(x + 1, y);
         throw new ArgumentOutOfRangeException("Invalid dir in MoveDir: " + dir);
     }
+
+    /// <summary>
+    /// Returns the direction opposite of the given direction.
+    /// </summary>
+    public static int OppDir(int dir) {
+        switch (dir) {
+            case 0: return 1;
+            case 1: return 0;
+            case 2: return 3;
+            case 3: return 2;
+        }
+        throw new ArgumentOutOfRangeException("Invalid dir in OppDir: " + dir);
+    }
 }

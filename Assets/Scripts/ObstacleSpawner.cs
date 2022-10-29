@@ -73,6 +73,7 @@ public class ObstacleSpawner : MonoBehaviour
         // GameObject curObst = Instantiate(obstObj, mapGrid.WorldPos(c), Quaternion.identity);
         yield return new WaitForSeconds(aliveDur);
         trackPlacer.PlaceTrack(c, TrackType.NONE);
+        mapGrid.SetGroundTile(c, true);
         mapGrid.tiles[c.x, c.y].isTargetted = false;
     }
 }

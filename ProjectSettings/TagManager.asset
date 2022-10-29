@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Tracks
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -41,15 +43,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Targets
-    uniqueID: 1834332549
-    locked: 0
-  - name: Train
-    uniqueID: 1759099135
+  - name: Ground
+    uniqueID: 2670659861
     locked: 0
   - name: Tracks
     uniqueID: 3293046097
     locked: 0
-  - name: Ground
-    uniqueID: 2670659861
+  - name: Train
+    uniqueID: 1759099135
+    locked: 0
+  - name: Targets
+    uniqueID: 1834332549
     locked: 0

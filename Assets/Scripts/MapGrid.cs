@@ -8,8 +8,10 @@ public class MapGrid : MonoBehaviour
     // Singleton
     static public MapGrid instance { get; private set; }
 
-    public Tile defaultTile;
-    Tilemap tilemap;
+    public Tile emptyTile;
+    public Tile[] groundTiles;
+    public Tile burntTile;
+    Tilemap tilemap, groundTilemap;
     Grid grid;
     public MapTile[,] tiles;
     [System.NonSerialized]
@@ -27,7 +29,11 @@ public class MapGrid : MonoBehaviour
     {
         instance = this;
 
-        tilemap = GetComponentInChildren<Tilemap>();
+        Tilemap[] maps = GetComponentsInChildren<Tilemap>();
+        foreach (Tilemap tm in maps) {
+            if (tm.tag == "Tracks") tilemap = tm;
+            else if (tm.tag == "Ground") groundTilemap = tm;
+        }
         grid = GetComponent<Grid>();
     }
 
@@ -48,15 +54,22 @@ public class MapGrid : MonoBehaviour
             for (int j = 0; j < height; j++)
             {
                 tiles[i, j] = new MapTile();
-                tilemap.SetTile(new Vector3Int(i, j), defaultTile);
+                SetTile(new Coords(i, j), emptyTile);
+                SetGroundTile(new Coords(i, j), false);
             }
         }
     }
 
     public void SetTile(Coords pos, Tile tile)
     {
-        if (tile == null) tilemap.SetTile(new Vector3Int(pos.x, pos.y), defaultTile);
+        if (tile == null) tilemap.SetTile(new Vector3Int(pos.x, pos.y), emptyTile);
         tilemap.SetTile(new Vector3Int(pos.x, pos.y), tile);
+    }
+
+    public void SetGroundTile(Coords pos, bool burnt)
+    {
+        if (burnt) groundTilemap.SetTile(new Vector3Int(pos.x, pos.y), burntTile);
+        else groundTilemap.SetTile(new Vector3Int(pos.x, pos.y), groundTiles[Random.Range(0, groundTiles.Length)]);
     }
 
     public MapTile GetTile(Coords pos)

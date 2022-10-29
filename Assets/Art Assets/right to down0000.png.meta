@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5c89730733207430db037755da9383dd
+guid: 9095ef449ad0848a793f5de0ebe73e5d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -2672,8 +2672,8 @@ TextureImporter:
       placeholders_9: -1812971412
       placeholders_110: -2136406169
       placeholders_102: 1210865371
-      placeholders_38: -599521362
       placeholders_119: -1600951404
+      placeholders_38: -599521362
       placeholders_116: -1296171067
       placeholders_109: 1965380173
       placeholders_25: -128435672
@@ -2685,10 +2685,10 @@ TextureImporter:
       placeholders_69: 202462258
       placeholders_24: -1182446748
       placeholders_100: 84198173
-      placeholders_37: 824878894
-      placeholders_63: -869965336
-      placeholders_80: 1077156868
       placeholders_15: -1361862234
+      placeholders_37: 824878894
+      placeholders_80: 1077156868
+      placeholders_63: -869965336
       placeholders_4: -956484473
       placeholders_23: 1074871111
       placeholders_16: -40029084

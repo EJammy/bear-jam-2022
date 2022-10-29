@@ -1,12 +1,13 @@
 ﻿using System;
 public enum TrackType
 {
-    NONE,
+    NONE = 0,
     HORI,
     VERTI,
     CORNERTL,
     CORNERTR,
     CORNERBL,
     CORNERBR,
-    CROSS
+    CROSS,
+    OBSTACLE
 }

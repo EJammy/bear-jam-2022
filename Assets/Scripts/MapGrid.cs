@@ -8,8 +8,9 @@ public class MapGrid : MonoBehaviour
     public Tile defaultTile;
     Tilemap tilemap;
     Grid grid;
-    MapTile[,] tiles;
-    int height, width;
+    public MapTile[,] tiles;
+    [System.NonSerialized]
+    public int height, width;
 
     public class MapTile
     {
@@ -47,6 +48,7 @@ public class MapGrid : MonoBehaviour
 
     public void SetTile(Coords pos, Tile tile)
     {
+        if (tile == null) tilemap.SetTile(new Vector3Int(pos.x, pos.y), defaultTile);
         tilemap.SetTile(new Vector3Int(pos.x, pos.y), tile);
     }
 

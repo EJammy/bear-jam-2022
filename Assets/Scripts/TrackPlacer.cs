@@ -17,7 +17,10 @@ public class TrackPlacer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlaceTrack(new Coords(3, 3), TrackType.HORI);
+    }
+
+    public void Initialize() {
+        grid = GetComponent<MapGrid>();
     }
 
     public void PlaceTrack(Coords pos, TrackType type) {

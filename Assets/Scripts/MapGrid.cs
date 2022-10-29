@@ -23,7 +23,6 @@ public class MapGrid : MonoBehaviour
     {
         tilemap = GetComponentInChildren<Tilemap>();
         grid = GetComponent<Grid>();
-        Initialize(10, 10);
     }
 
     // Update is called once per frame
@@ -33,6 +32,8 @@ public class MapGrid : MonoBehaviour
 
     public void Initialize(int height, int width)
     {
+        tilemap = GetComponentInChildren<Tilemap>();
+        grid = GetComponent<Grid>();
         this.height = height;
         this.width = width;
         tiles = new MapTile[height, width];

@@ -16,6 +16,11 @@ public class TrainController : MonoBehaviour
         }
     }
 
+    public int Dir {
+        get { return nextDir; }
+        set { nextDir = value; }
+    }
+
     Coords _pos;
 
     float moveCD;
@@ -36,12 +41,65 @@ public class TrainController : MonoBehaviour
 
         if (moveCD < 0)
         {
-            Pos = Pos.MoveDir(nextDir);
+            Move();
+        }
+    }
 
-            prevDir = Coords.OppDir(nextDir);
+    void Move()
+    {
+        // print(": " + this + " moved to " + nextDir);
+        Pos = Pos.MoveDir(nextDir);
 
-            // TODO: set next dir
-            moveCD = timeBetweenMove;
+        prevDir = Coords.OppDir(nextDir);
+
+        // TODO: set next dir
+        moveCD = timeBetweenMove;
+        int opening1 = -1;
+        int opening2 = -1;
+        switch(MapGrid.instance.GetTile(Pos).trackType)
+        {
+            case TrackType.HORI:
+                opening1 = Coords.LEFT;
+                opening2 = Coords.RIGHT;
+                break;
+            case TrackType.VERTI:
+                opening1 = Coords.UP;
+                opening2 = Coords.DOWN;
+                break;
+            case TrackType.CORNERTL:
+                opening1 = Coords.LEFT;
+                opening2 = Coords.UP;
+                break;
+            case TrackType.CORNERTR:
+                opening1 = Coords.RIGHT;
+                opening2 = Coords.UP;
+                break;
+            case TrackType.CORNERBL:
+                opening1 = Coords.LEFT;
+                opening2 = Coords.DOWN;
+                break;
+            case TrackType.CORNERBR:
+                opening1 = Coords.DOWN;
+                opening2 = Coords.RIGHT;
+                break;
+            case TrackType.CROSS:
+                nextDir = Coords.OppDir(prevDir);
+                return;
+        }
+
+
+        if (prevDir == opening1)
+        {
+            nextDir = opening2;
+        }
+        else if (prevDir == opening2)
+        {
+            nextDir = opening1;
+        }
+        else
+        {
+            // Destroy(gameObject);
+            GameManager.instance.HandleCrash();
         }
     }
 }

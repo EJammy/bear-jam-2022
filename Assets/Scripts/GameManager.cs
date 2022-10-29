@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // Singleton
+    static public GameManager instance { get; private set; }
+
     MapGrid mapGrid;
     TrackPlacer trackPlacer;
     ObstacleSpawner obstacleSpawner;
@@ -13,6 +16,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
+
         Grid grid = FindObjectOfType<Grid>();
         if (grid == null) {
             Debug.LogError("No grid found!");
@@ -41,7 +46,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    void HandleCrash() {
+    public void HandleCrash() {
         crashes++;
         if (crashes >= 3) {
             // TODO: sadness :(

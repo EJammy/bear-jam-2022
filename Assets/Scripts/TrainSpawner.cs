@@ -47,9 +47,11 @@ public class TrainSpawner : MonoBehaviour
             station.nextSpawnCD -= Time.deltaTime;
             if (station.nextSpawnCD < 0)
             {
-                Debug.Log(" New Train! ");
+                // Debug.Log(" New Train! ");
                 station.nextSpawnCD = spawnCD;
-                Instantiate(train, MapGrid.instance.WorldPos(station.start), Quaternion.identity).Pos = station.start;
+                var newTrain = Instantiate(train, MapGrid.instance.WorldPos(station.start), Quaternion.identity);
+                newTrain.Pos = station.start;
+                newTrain.Dir = station.dir;
             }
         }
     }

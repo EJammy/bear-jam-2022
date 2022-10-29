@@ -59,6 +59,11 @@ public class MapGrid : MonoBehaviour
         tilemap.SetTile(new Vector3Int(pos.x, pos.y), tile);
     }
 
+    public MapTile GetTile(Coords pos)
+    {
+        return tiles[pos.x, pos.y];
+    }
+
     public Coords GridCoords(Vector3 pos)
     {
         Vector3Int v = grid.LocalToCell(pos);

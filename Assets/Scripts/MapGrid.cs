@@ -5,6 +5,9 @@ using UnityEngine.Tilemaps;
 
 public class MapGrid : MonoBehaviour
 {
+    // Singleton
+    static public MapGrid instance { get; private set; }
+
     public Tile defaultTile;
     Tilemap tilemap;
     Grid grid;
@@ -21,6 +24,8 @@ public class MapGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
+
         tilemap = GetComponentInChildren<Tilemap>();
         grid = GetComponent<Grid>();
     }
@@ -57,5 +62,14 @@ public class MapGrid : MonoBehaviour
     {
         Vector3Int v = grid.LocalToCell(pos);
         return new Coords(v.x, v.y);
+    }
+
+    public Vector2 WorldPos(int x, int y)
+    {
+        return grid.CellToWorld(new Vector3Int(x, y));
+    }
+    public Vector2 WorldPos(Coords coord)
+    {
+        return WorldPos(coord.x, coord.y);
     }
 }

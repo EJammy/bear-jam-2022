@@ -178,7 +178,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_SpritePixelsToUnits
-    value: 16
+    value: 32
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_SpriteBorder.x
@@ -11246,19 +11246,19 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[25].first
-    value: placeholders_119
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[25].second
-    value: -1600951404
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[26].first
     value: placeholders_38
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[26].second
+    propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[25].second
     value: -599521362
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[26].first
+    value: placeholders_119
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[26].second
+    value: -1600951404
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[27].first
@@ -11350,19 +11350,19 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[38].first
-    value: placeholders_63
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[38].second
-    value: -869965336
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[39].first
     value: placeholders_15
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[39].second
+    propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[38].second
     value: -1361862234
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[39].first
+    value: placeholders_37
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[39].second
+    value: 824878894
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[40].first
@@ -11374,11 +11374,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[41].first
-    value: placeholders_37
+    value: placeholders_63
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[41].second
-    value: 824878894
+    value: -869965336
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_SpriteSheet.m_NameFileIdTable.Array.data[42].first

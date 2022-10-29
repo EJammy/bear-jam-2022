@@ -48,11 +48,13 @@ public class GameManager : MonoBehaviour
 
     public void HandleCrash() {
         crashes++;
+        Debug.Log(string.Format("Crashed! Total crashes: %d", crashes));
         if (crashes >= 3) {
             // TODO: sadness :(
         }
     }
     void IncReputation() {
+        Debug.Log(string.Format("Rep increased! Total rep: %d", reputation));
         reputation++;
     }
 }

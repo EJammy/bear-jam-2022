@@ -7,6 +7,7 @@ public class TrainController : MonoBehaviour
 {
     int prevDir;
     int nextDir;
+    public TrainSpawner.TrainStation parentStation;
 
     public Coords Pos { get => _pos;
         set
@@ -48,15 +49,15 @@ public class TrainController : MonoBehaviour
     void Move()
     {
         // print(": " + this + " moved to " + nextDir);
-        Pos = Pos.MoveDir(nextDir);
+        Coords nextPos = Pos.MoveDir(nextDir);
 
         prevDir = Coords.OppDir(nextDir);
+        nextDir = -1;
 
-        // TODO: set next dir
         moveCD = timeBetweenMove;
         int opening1 = -1;
         int opening2 = -1;
-        switch(MapGrid.instance.GetTile(Pos).trackType)
+        switch(MapGrid.instance.GetTile(nextPos).trackType)
         {
             case TrackType.HORI:
                 opening1 = Coords.LEFT;
@@ -87,7 +88,6 @@ public class TrainController : MonoBehaviour
                 return;
         }
 
-
         if (prevDir == opening1)
         {
             nextDir = opening2;
@@ -96,10 +96,16 @@ public class TrainController : MonoBehaviour
         {
             nextDir = opening1;
         }
+
+        if (nextDir == -1)
+        {
+            Destroy(gameObject);
+            GameManager.instance.HandleCrash();
+            parentStation.spawned = false;
+        }
         else
         {
-            // Destroy(gameObject);
-            GameManager.instance.HandleCrash();
+            Pos = nextPos;
         }
     }
 }

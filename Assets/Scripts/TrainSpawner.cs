@@ -17,15 +17,18 @@ public class TrainSpawner : MonoBehaviour
         public Coords start;
         public Coords end;
 
-        public int dir;
-        public float nextSpawnCD;
+        public int startDir, endDir;
+        public float spawnDelay;
+        public bool spawned;
 
-        public TrainStation(Coords start, Coords end, int dir, float nextSpawnCD)
+        public TrainStation(Coords start, Coords end, int startDir, int endDir, float spawnDelay)
         {
             this.start = start;
             this.end = end;
-            this.dir = dir;
-            this.nextSpawnCD = nextSpawnCD;
+            this.startDir = startDir;
+            this.endDir = endDir;
+            this.spawnDelay = spawnDelay;
+            spawned = false;
         }
 
     }
@@ -36,7 +39,7 @@ public class TrainSpawner : MonoBehaviour
     void Start()
     {
         stations = new List<TrainStation>();
-        AddStation(new Coords(0, 0), new Coords(0, 0), Coords.RIGHT);
+        AddStation(new Coords(0, 0), new Coords(4, 4), Coords.RIGHT, Coords.DOWN);
     }
 
     // Update is called once per frame
@@ -44,20 +47,25 @@ public class TrainSpawner : MonoBehaviour
     {
         foreach (var station in stations)
         {
-            station.nextSpawnCD -= Time.deltaTime;
-            if (station.nextSpawnCD < 0)
+            if (!station.spawned) 
             {
-                // Debug.Log(" New Train! ");
-                station.nextSpawnCD = spawnCD;
-                var newTrain = Instantiate(train, MapGrid.instance.WorldPos(station.start), Quaternion.identity);
-                newTrain.Pos = station.start;
-                newTrain.Dir = station.dir;
+                station.spawnDelay -= Time.deltaTime;
+                if (station.spawnDelay < 0)
+                {
+                    // Debug.Log(" New Train! ");
+                    station.spawned = true;
+                    station.spawnDelay = spawnCD;
+                    var newTrain = Instantiate(train, MapGrid.instance.WorldPos(station.start), Quaternion.identity);
+                    newTrain.Pos = station.start;
+                    newTrain.Dir = station.startDir;
+                    newTrain.parentStation = station;
+                }
             }
         }
     }
 
-    public void AddStation(Coords start, Coords end, int dir)
+    public void AddStation(Coords start, Coords end, int startDir, int endDir)
     {
-        stations.Add(new TrainStation(start, end, dir, spawnCD));
+        stations.Add(new TrainStation(start, end, startDir, endDir, spawnCD));
     }
 }

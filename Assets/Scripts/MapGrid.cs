@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class MapGrid : MonoBehaviour
 {
+    public UnityEngine.Tilemaps.Tile defaultTile;
     Tilemap tilemap;
     Grid grid;
     Tile[,] tiles;
@@ -22,6 +23,7 @@ public class MapGrid : MonoBehaviour
     {
         tilemap = GetComponentInChildren<Tilemap>();
         grid = GetComponent<Grid>();
+        Initialize(10, 10);
     }
 
     // Update is called once per frame
@@ -31,11 +33,15 @@ public class MapGrid : MonoBehaviour
 
     void Initialize(int height, int width)
     {
+        this.height = height;
+        this.width = width;
         tiles = new Tile[height, width];
         for (int i = 0; i < height; i++)
         {
             for (int j = 0; j < width; j++)
             {
+                tiles[i, j] = new Tile();
+                tiles[i, j].tile = defaultTile;
                 tilemap.SetTile(new Vector3Int(i, j), tiles[i, j].tile);
             }
         }

@@ -5,14 +5,14 @@ using UnityEngine.Tilemaps;
 
 public class MapGrid : MonoBehaviour
 {
+    public Tile defaultTile;
     Tilemap tilemap;
     Grid grid;
-    Tile[,] tiles;
+    MapTile[,] tiles;
     int height, width;
 
-    public class Tile
+    public class MapTile
     {
-        public TileBase tile = null; // sprite to display; CHANGE ME to default
         public TrackType trackType = TrackType.NONE; // has tracks?
         public bool isBlocked = false; // blocked by obstacle?
     }
@@ -22,6 +22,7 @@ public class MapGrid : MonoBehaviour
     {
         tilemap = GetComponentInChildren<Tilemap>();
         grid = GetComponent<Grid>();
+        Initialize(10, 10);
     }
 
     // Update is called once per frame
@@ -29,16 +30,24 @@ public class MapGrid : MonoBehaviour
     {
     }
 
-    void Initialize(int height, int width)
+    public void Initialize(int height, int width)
     {
-        tiles = new Tile[height, width];
+        this.height = height;
+        this.width = width;
+        tiles = new MapTile[height, width];
         for (int i = 0; i < height; i++)
         {
             for (int j = 0; j < width; j++)
             {
-                tilemap.SetTile(new Vector3Int(i, j), tiles[i, j].tile);
+                tiles[i, j] = new MapTile();
+                tilemap.SetTile(new Vector3Int(i, j), defaultTile);
             }
         }
+    }
+
+    public void SetTile(Coords pos, Tile tile)
+    {
+        tilemap.SetTile(new Vector3Int(pos.x, pos.y), tile);
     }
 
     public Coords GridCoords(Vector3 pos)

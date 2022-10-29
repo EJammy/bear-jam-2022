@@ -5,12 +5,15 @@ using UnityEngine.Tilemaps;
 
 public class TrackPlacer : MonoBehaviour
 {
+    // Singleton
+    static public TrackPlacer instance { get; private set; }
     public Tile[] tileDict;
     MapGrid grid;
 
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         grid = GetComponent<MapGrid>();
     }
 
@@ -81,7 +84,7 @@ public class TrackPlacer : MonoBehaviour
 
     public void PlaceTrack(Coords pos, TrackType type) {
         grid.tiles[pos.x, pos.y].trackType = type;
-        grid.tiles[pos.x, pos.y].isBlocked = (type == TrackType.OBSTACLE);
+        grid.tiles[pos.x, pos.y].isBlocked = (type == TrackType.OBSTACLE || (int)type >= (int)TrackType.STATIONT);
         grid.SetTile(pos, tileDict[(int)type]);
     }
 }

@@ -9,5 +9,9 @@ public enum TrackType
     CORNERBL,
     CORNERBR,
     CROSS,
-    OBSTACLE
+    OBSTACLE,
+    STATIONT,
+    STATIONB,
+    STATIONL,
+    STATIONR
 }

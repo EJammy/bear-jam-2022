@@ -67,5 +67,7 @@ public class TrainSpawner : MonoBehaviour
     public void AddStation(Coords start, Coords end, int startDir, int endDir)
     {
         stations.Add(new TrainStation(start, end, startDir, endDir, spawnCD));
+        TrackPlacer.instance.PlaceTrack(start, (TrackType)((int)TrackType.STATIONT + startDir));
+        TrackPlacer.instance.PlaceTrack(end, (TrackType)((int)TrackType.STATIONT + endDir));
     }
 }

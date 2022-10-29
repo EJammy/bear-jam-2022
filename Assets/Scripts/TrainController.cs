@@ -85,7 +85,9 @@ public class TrainController : MonoBehaviour
                 break;
             case TrackType.CROSS:
                 nextDir = Coords.OppDir(prevDir);
-                return;
+                opening1 = -1;
+                opening2 = -1;
+                break;
         }
 
         if (prevDir == opening1)

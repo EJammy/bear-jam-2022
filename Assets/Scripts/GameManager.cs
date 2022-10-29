@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     MapGrid mapGrid;
     TrackPlacer trackPlacer;
+    ObstacleSpawner obstacleSpawner;
     public int mapHeight, mapWidth;
     int reputation, crashes;
 
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
         } else {
             mapGrid = grid.GetComponent<MapGrid>();
             trackPlacer = grid.GetComponent<TrackPlacer>();
+            obstacleSpawner = grid.GetComponent<ObstacleSpawner>();
         }
         mapGrid.Initialize(mapHeight, mapWidth);
         trackPlacer.Initialize();
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
                 trackPlacer.PlaceTrack(new Coords(i, j), (TrackType)((i + j) % 9));
             }
         }
+        obstacleSpawner.SetSpawns(true);
     }
 
     // Update is called once per frame

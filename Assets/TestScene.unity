@@ -240,8 +240,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1001921199
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 1111557706}
   - component: {fileID: 1111557705}
   - component: {fileID: 1111557708}
+  - component: {fileID: 1111557709}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -371,6 +372,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 897eb3377f404481eb0331f92b0c1f54, type: 2}
   - {fileID: 11400000, guid: d8e29c11e86424adeb98dcda667ae60b, type: 2}
   - {fileID: 11400000, guid: 9cca6a96512534a2eb15a379956b9365, type: 2}
+--- !u!114 &1111557709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111557704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef5da6c1c0fb4c359c57aaf9c173652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObj: {fileID: 6789432664143970825, guid: fc678082e90884b2f92ec44d0bd88d2d, type: 3}
+  spawnTime: 20
+  warnDur: 5
+  aliveDur: 20
 --- !u!1 &1717271140
 GameObject:
   m_ObjectHideFlags: 0

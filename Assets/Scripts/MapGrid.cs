@@ -19,6 +19,7 @@ public class MapGrid : MonoBehaviour
     {
         public TrackType trackType = TrackType.NONE; // has tracks?
         public bool isBlocked = false; // blocked by obstacle?
+        public bool isTargetted = false; // either currently being targeted, or still burning
     }
 
     // Start is called before the first frame update
@@ -41,10 +42,10 @@ public class MapGrid : MonoBehaviour
         grid = GetComponent<Grid>();
         this.height = height;
         this.width = width;
-        tiles = new MapTile[height, width];
-        for (int i = 0; i < height; i++)
+        tiles = new MapTile[width, height];
+        for (int i = 0; i < width; i++)
         {
-            for (int j = 0; j < width; j++)
+            for (int j = 0; j < height; j++)
             {
                 tiles[i, j] = new MapTile();
                 tilemap.SetTile(new Vector3Int(i, j), defaultTile);
@@ -66,7 +67,7 @@ public class MapGrid : MonoBehaviour
 
     public Vector2 WorldPos(int x, int y)
     {
-        return grid.CellToWorld(new Vector3Int(x, y));
+        return grid.LocalToWorld(grid.CellToLocalInterpolated(new Vector3(x + 0.5f, y + 0.5f)));
     }
     public Vector2 WorldPos(Coords coord)
     {

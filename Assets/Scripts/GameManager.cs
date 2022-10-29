@@ -32,11 +32,11 @@ public class GameManager : MonoBehaviour
         crashes = 0;
         
         // testing
-        for (int i = 0; i < mapHeight; i++) {
-            for (int j = 0; j < mapWidth; j++) {
-                trackPlacer.PlaceTrack(new Coords(i, j), (TrackType)((i + j) % 9));
-            }
-        }
+        // for (int i = 0; i < mapHeight; i++) {
+        //     for (int j = 0; j < mapWidth; j++) {
+        //         trackPlacer.PlaceTrack(new Coords(i, j), (TrackType)((i + j) % 9));
+        //     }
+        // }
         obstacleSpawner.SetSpawns(true);
     }
 

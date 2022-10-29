@@ -199,20 +199,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapHeight: 10
   mapWidth: 10
---- !u!114 &884106156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 884106154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b3e00e6c1576ccd9b0cb3630fe92384, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnCD: 3
-  train: {fileID: 4038049606975779335, guid: 545097f9fc01384ecbc5b15b3f9b8bcb, type: 3}
 --- !u!1 &1672672072
 GameObject:
   m_ObjectHideFlags: 0

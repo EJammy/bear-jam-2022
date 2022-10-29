@@ -91,4 +91,10 @@ public class MapGrid : MonoBehaviour
     {
         return WorldPos(coord.x, coord.y);
     }
+
+    public bool InBound(Coords coord)
+    {
+        return coord.x >= 0 && coord.x < width
+            && coord.y >= 0 && coord.y < height;
+    }
 }

@@ -14,9 +14,65 @@ public class TrackPlacer : MonoBehaviour
         grid = GetComponent<MapGrid>();
     }
 
+    TrackType selected = TrackType.NONE;
+    Coords lastSelectedCell;
+
+    readonly TrackType[] selections =
+    {
+        TrackType.HORI,
+        TrackType.VERTI,
+        TrackType.CORNERTL,
+        TrackType.CORNERTR,
+        TrackType.CORNERBL,
+        TrackType.CORNERBR,
+        TrackType.CROSS,
+    };
+
     // Update is called once per frame
     void Update()
     {
+        for (int i = 0; i < selections.Length; i++)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+            {
+                selected = selections[i];
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            selected = TrackType.NONE;
+        }
+
+        // Might need to check if lastSelectedCell is set in the future
+        if (grid.GetTile(lastSelectedCell).trackType == TrackType.NONE)
+        {
+            grid.SetTile(lastSelectedCell, tileDict[(int)TrackType.NONE]);
+        }
+
+        var selectedCell = grid.GridCoords(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+
+        if (grid.InBound(selectedCell))
+        {
+            if (grid.GetTile(selectedCell).trackType == TrackType.NONE)
+            {
+                var preview = Instantiate(tileDict[(int)selected]);
+
+                // set alpha
+                var color = preview.color;
+                color.a = 0.5f;
+                preview.color = color;
+
+                grid.SetTile(selectedCell, preview);
+
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    PlaceTrack(selectedCell, selected);
+                }
+                lastSelectedCell = selectedCell;
+            }
+
+        }
     }
 
     public void Initialize() {

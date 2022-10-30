@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         curStage = 1;
 
         obstacleSpawner.SetSpawns(false);
-        trainSpawner.AddStation(new Coords(0, 4), new Coords(14, 4), Coords.RIGHT, Coords.LEFT);
+        trainSpawner.AddStation(new Coords(0, 4), new Coords(11, 4), Coords.RIGHT, Coords.LEFT);
         trainSpawner.stations[0].spawnDelay = 5.0f;
     }
 

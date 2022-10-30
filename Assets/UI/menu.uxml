@@ -73,13 +73,15 @@
                     <ui:VisualElement name="star2" style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=-2140602402&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_108&apos;); width: 32px; height: 32px;" />
                     <ui:VisualElement name="star3" style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=-2140602402&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_108&apos;); width: 32px; height: 32px;" />
                     <ui:VisualElement name="star4" style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=-2140602402&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_108&apos;); width: 32px; height: 32px;" />
-                    <ui:VisualElement name="star5" style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=-2140602402&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_108&apos;); width: 32px; height: 32px;" />
+                    <ui:VisualElement name="star5" style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=-2140602402&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_108&apos;); width: 32px; height: 32px; visibility: hidden;" />
                 </ui:VisualElement>
                 <ui:VisualElement style="width: 100%; padding-left: 16px; padding-right: 16px; flex-direction: row; align-items: center; margin-top: 4px;">
-                    <ui:Label text="STRIKES:" display-tooltip-when-elided="true" name="Strikes-Text" class="textstyle" style="padding-right: 8px;" />
+                    <ui:Label text="TRAINS LOST:" display-tooltip-when-elided="true" name="Strikes-Text" class="textstyle" style="padding-right: 8px;" />
                     <ui:VisualElement name="strike1" style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=-1201303725&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_96&apos;); width: 32px; height: 32px;" />
                     <ui:VisualElement name="strike2" style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=-1201303725&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_96&apos;); width: 32px; height: 32px;" />
                     <ui:VisualElement name="strike3" style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=-1201303725&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_96&apos;); width: 32px; height: 32px;" />
+                    <ui:VisualElement name="strike4" style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=-1201303725&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_96&apos;); width: 32px; height: 32px;" />
+                    <ui:VisualElement name="strike5" style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=-1201303725&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_96&apos;); width: 32px; height: 32px;" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="kaijuzone" style="width: 100%; margin-top: 12px; height: 218px; bottom: auto; overflow: hidden; justify-content: flex-start;">

@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     int reputation, crashes;
     int curTrainArrivals, curStage;
     int[] stageTrainGoals = {0, 2, 4, 10, 15};
-    int winRep = 5, loseCrashes = 3;
+    int winRep = 4, loseCrashes = 5;
     VisualElement[] starsUI, strikesUI;
     public Sprite emptyStar, filledStar, emptyStrike, filledStrike;
 

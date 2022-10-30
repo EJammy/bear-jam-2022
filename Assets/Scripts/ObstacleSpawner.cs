@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ObstacleSpawner : MonoBehaviour
 {
     public GameObject targetObj;
     public GameObject fireBall;
+    public Sprite kaijuIdle, kaijuRoar;
     // public GameObject obstObj;
 
     public float spawnTime = 20.0f;
@@ -47,9 +49,11 @@ public class ObstacleSpawner : MonoBehaviour
                 isRoaring = true;
                 // do roar
                 GameManager.instance.PlaySFX(roarSFX[UnityEngine.Random.Range(0, roarSFX.Length)]);
+                GameManager.instance.UI.Q<VisualElement>("kaiju-sprite").style.backgroundImage = new StyleBackground(kaijuRoar);
             } else if (isRoaring && curTime >= roarTime) {
                 curTime = 0f;
                 isRoaring = false;
+                GameManager.instance.UI.Q<VisualElement>("kaiju-sprite").style.backgroundImage = new StyleBackground(kaijuIdle);
                 List<Coords> spawnLoc = RandomizeLoc(3);
                 foreach (Coords c in spawnLoc) {
                     StartCoroutine(SpawnSingle(c));

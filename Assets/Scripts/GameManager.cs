@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
 
         obstacleSpawner.SetSpawns(false);
         trainSpawner.AddStation(new Coords(0, 4), new Coords(14, 4), Coords.RIGHT, Coords.LEFT);
+        trainSpawner.stations[0].spawnDelay = 5.0f;
     }
 
     // Update is called once per frame

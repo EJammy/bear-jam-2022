@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3e00e6c1576ccd9b0cb3630fe92384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCD: 5
+  spawnCD: 10
   train: {fileID: 4038049606975779335, guid: 545097f9fc01384ecbc5b15b3f9b8bcb, type: 3}
 --- !u!1 &4016002497857724401
 GameObject:

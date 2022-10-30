@@ -33,7 +33,7 @@ public class TrainSpawner : MonoBehaviour
     [SerializeField]
     TrainController train;
 
-    List<TrainStation> stations;
+    public List<TrainStation> stations;
     int curLineCnt = 0;
     bool _init = false;
 

@@ -101,7 +101,7 @@ public class TrackPlacer : MonoBehaviour
             selected = TrackType.CORNERTL;
             didSelect = true;
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             selected = TrackType.CROSS;
             didSelect = true;

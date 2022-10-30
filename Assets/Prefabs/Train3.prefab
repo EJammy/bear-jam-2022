@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trainSprite:
-  - {fileID: -527409592, guid: 0009fcf63a3234e8eb1596feba00079d, type: 3}
-  - {fileID: 702282932, guid: 0009fcf63a3234e8eb1596feba00079d, type: 3}
-  - {fileID: -1204915160, guid: 0009fcf63a3234e8eb1596feba00079d, type: 3}
-  - {fileID: 1333709683, guid: 0009fcf63a3234e8eb1596feba00079d, type: 3}
+  - {fileID: 1106958876, guid: e53c59932c87d4a6197f382877cf43fc, type: 3}
+  - {fileID: 143886958, guid: e53c59932c87d4a6197f382877cf43fc, type: 3}
+  - {fileID: -335638740, guid: e53c59932c87d4a6197f382877cf43fc, type: 3}
+  - {fileID: -1840392720, guid: e53c59932c87d4a6197f382877cf43fc, type: 3}

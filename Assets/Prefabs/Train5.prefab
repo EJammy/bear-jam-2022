@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3710925133521458483}
   - component: {fileID: 4038049606975779335}
   m_Layer: 0
-  m_Name: Train1
+  m_Name: Train5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trainSprite:
-  - {fileID: -1787549712, guid: d04743e15e59845abbad1260c88e8693, type: 3}
-  - {fileID: 765307749, guid: d04743e15e59845abbad1260c88e8693, type: 3}
-  - {fileID: 9837437, guid: d04743e15e59845abbad1260c88e8693, type: 3}
-  - {fileID: -1505412155, guid: d04743e15e59845abbad1260c88e8693, type: 3}
+  - {fileID: -527409592, guid: 0009fcf63a3234e8eb1596feba00079d, type: 3}
+  - {fileID: 702282932, guid: 0009fcf63a3234e8eb1596feba00079d, type: 3}
+  - {fileID: -1204915160, guid: 0009fcf63a3234e8eb1596feba00079d, type: 3}
+  - {fileID: 1333709683, guid: 0009fcf63a3234e8eb1596feba00079d, type: 3}

@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObj: {fileID: 6789432664143970825, guid: fc678082e90884b2f92ec44d0bd88d2d, type: 3}
-  fireBall: {fileID: 0}
+  fireBall: {fileID: 8174232726964863716, guid: 45bf5dc3bff12f548a831ace15ee95bf, type: 3}
   kaijuIdle: {fileID: 912257943, guid: e788098df7d524cf2a4c5f901445e105, type: 3}
   kaijuRoar: {fileID: -1722666425, guid: e788098df7d524cf2a4c5f901445e105, type: 3}
   spawnTime: 20

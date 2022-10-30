@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6623e7c0afc4e16b8e9f1137e7620c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crashAudio: {fileID: 8300000, guid: d7d0cdd6a7f5dc6e2985805bdf87efb6, type: 3}
+  music: {fileID: 8300000, guid: 4e115227827d9204b84fb8c6b26b454b, type: 3}
   mapHeight: 10
   mapWidth: 10
 --- !u!82 &3146738684667073623

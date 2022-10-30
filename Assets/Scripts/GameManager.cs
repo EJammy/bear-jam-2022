@@ -10,12 +10,14 @@ public class GameManager : MonoBehaviour
     AudioClip crashAudio;
     [SerializeField]
     AudioClip repAudio;
+    [SerializeField]
+    AudioClip titleMusic, introMusic, atkMusic, victorySFX, loseSFX;
 
     // Do we need this when we have crash audio?
     // [SerializeField]
     // AudioClip strikeAudio;
 
-    AudioSource audioSrc;
+    AudioSource musicSrc, sfxSrc;
 
     // Singleton
     static public GameManager instance { get; private set; }
@@ -39,8 +41,12 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 
-        audioSrc = GetComponent<AudioSource>();
-        audioSrc.playOnAwake = true;
+        AudioSource[] srcs = GetComponents<AudioSource>();
+        // wow such hack
+        if (srcs[0].loop) {musicSrc = srcs[0]; sfxSrc = srcs[1];}
+        else {musicSrc = srcs[1]; sfxSrc = srcs[0];}
+        musicSrc.clip = titleMusic;
+        musicSrc.Play();
 
         UI = gameHUD.rootVisualElement;
         starsUI = new VisualElement[winRep];
@@ -85,7 +91,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void HandleCrash() {
-        PlayAudio(crashAudio);
+        PlaySFX(crashAudio);
         strikesUI[crashes].style.backgroundImage = new StyleBackground(filledStrike);
         crashes++;
         Debug.Log(string.Format("Crashed! Total crashes: {0}", crashes));
@@ -98,15 +104,24 @@ public class GameManager : MonoBehaviour
             loseUI.rootVisualElement.Q<VisualElement>("root").visible = true;
             loseUI.rootVisualElement.Q<Button>("playagain-button").SetEnabled(true);
             trackPlacer.enabled = false;
-            audioSrc.Stop();
+            musicSrc.Stop();
+            PlaySFX(loseSFX);
             Debug.Log("GAME OVER");
         }
     }
     public void IncReputation() {
         starsUI[reputation].style.backgroundImage = new StyleBackground(filledStar);
         reputation++;
-        PlayAudio(repAudio);
+        PlaySFX(repAudio);
         Debug.Log(string.Format("Rep increased! Total rep: {0}", reputation));
+
+        if (reputation == 1) {
+            // start the attack!
+            obstacleSpawner.SetSpawns(true);
+            musicSrc.Stop();
+            musicSrc.clip = atkMusic;
+            musicSrc.Play();
+        }
 
         if (reputation >= winRep) {
             // win! stop spawning obstacles, trains, and stop moving trains
@@ -118,7 +133,8 @@ public class GameManager : MonoBehaviour
             winUI.rootVisualElement.Q<VisualElement>("root").visible = true;
             winUI.rootVisualElement.Q<Button>("playagain-button").SetEnabled(true);
             trackPlacer.enabled = false;
-            audioSrc.Stop();
+            musicSrc.Stop();
+            PlaySFX(victorySFX);
             Debug.Log("WIN");
         }
     }
@@ -133,10 +149,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // TODO: Manage music
-    public void PlayAudio(AudioClip clip)
+    public void PlaySFX(AudioClip clip)
     {
-        audioSrc.PlayOneShot(clip);
+        sfxSrc.PlayOneShot(clip);
     }
 
     private void RestartGame() {
@@ -154,6 +169,9 @@ public class GameManager : MonoBehaviour
         crashes = 0;
         curTrainArrivals = 0;
         curStage = 1;
+        musicSrc.Stop();
+        musicSrc.clip = introMusic;
+        musicSrc.Play();
 
         obstacleSpawner.SetSpawns(false);
         trainSpawner.AddStation(new Coords(0, 4), new Coords(11, 4), Coords.RIGHT, Coords.LEFT);

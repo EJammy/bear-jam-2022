@@ -83,8 +83,9 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="kaijuzone" style="width: 100%; margin-top: 12px; height: 218px; bottom: auto; overflow: hidden; justify-content: flex-start;">
-                <ui:VisualElement name="kaiju-bg" style="background-color: rgb(47, 89, 159); width: 100%; height: 196px; align-items: flex-start; justify-content: flex-end; margin-bottom: -12px;">
-                    <ui:VisualElement name="kaiju-sprite" style="background-image: url(&apos;project://database/Assets/Sprites/kaiju-Sheet.png?fileID=912257943&amp;guid=e788098df7d524cf2a4c5f901445e105&amp;type=3#kaiju-Sheet_0&apos;); width: 270px; height: 246px; bottom: auto; margin-bottom: -44px; margin-top: -35px; padding-right: 0; margin-left: -45px;" />
+                <ui:VisualElement name="kaiju-bg" style="background-color: rgb(47, 89, 159); width: 100%; height: 196px; align-items: flex-start; justify-content: flex-start; margin-bottom: -12px; flex-direction: row;">
+                    <ui:VisualElement name="kaiju-sprite" style="background-image: url(&apos;project://database/Assets/Sprites/kaiju-Sheet.png?fileID=912257943&amp;guid=e788098df7d524cf2a4c5f901445e105&amp;type=3#kaiju-Sheet_0&apos;); width: 270px; height: 246px; bottom: auto; margin-bottom: -44px; margin-top: -2px; padding-right: 0; margin-left: -45px;" />
+                    <ui:Label text="DAIGON CAM (LIVE)" display-tooltip-when-elided="true" style="-unity-text-align: lower-right; height: 100%; justify-content: flex-start; width: 162px;" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

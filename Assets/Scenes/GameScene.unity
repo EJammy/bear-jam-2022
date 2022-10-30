@@ -510,6 +510,14 @@ PrefabInstance:
       propertyPath: gameHUD
       value: 
       objectReference: {fileID: 1504012167}
+    - target: {fileID: 4007516715972162065, guid: cd11bedf4c0179eb7b9ae8f7d47a042b, type: 3}
+      propertyPath: titleUI
+      value: 
+      objectReference: {fileID: 1295499623}
+    - target: {fileID: 4007516715972162065, guid: cd11bedf4c0179eb7b9ae8f7d47a042b, type: 3}
+      propertyPath: creditsUI
+      value: 
+      objectReference: {fileID: 1252057378}
     - target: {fileID: 4007516715972162066, guid: cd11bedf4c0179eb7b9ae8f7d47a042b, type: 3}
       propertyPath: m_RootOrder
       value: 2

@@ -45,6 +45,19 @@ public class GameManager : MonoBehaviour
             strikesUI[i] = UI.Q<VisualElement>("strike" + (i+1).ToString());
         }
 
+        Grid grid = FindObjectOfType<Grid>();
+        if (grid == null) {
+            Debug.LogError("No grid found!");
+        } else {
+            mapGrid = grid.GetComponent<MapGrid>();
+            trackPlacer = grid.GetComponent<TrackPlacer>();
+            
+            obstacleSpawner = grid.GetComponent<ObstacleSpawner>();
+            trainSpawner = grid.GetComponent<TrainSpawner>();
+
+            trackPlacer.enabled = false;
+        }
+
         winUI.rootVisualElement.Q<Button>("playagain-button").SetEnabled(false);
         loseUI.rootVisualElement.Q<Button>("playagain-button").SetEnabled(false);
 
@@ -126,17 +139,9 @@ public class GameManager : MonoBehaviour
     }
 
     private void StartGame() {
-        Grid grid = FindObjectOfType<Grid>();
-        if (grid == null) {
-            Debug.LogError("No grid found!");
-        } else {
-            mapGrid = grid.GetComponent<MapGrid>();
-            trackPlacer = grid.GetComponent<TrackPlacer>();
-            obstacleSpawner = grid.GetComponent<ObstacleSpawner>();
-            trainSpawner = grid.GetComponent<TrainSpawner>();
-        }
-        
         titleUI.rootVisualElement.Q<VisualElement>("root").visible = false;
+
+        trackPlacer.enabled = true;
         mapGrid.Initialize(mapHeight, mapWidth);
         trackPlacer.Initialize();
         obstacleSpawner.Initialize();

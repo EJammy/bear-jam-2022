@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/ui-styles.uss?fileID=7433441132597879392&amp;guid=eeebf549a79d841d9be02835dd6e2631&amp;type=3#ui-styles" />
-    <ui:VisualElement name="Root" class="textstyle" style="width: 100%; height: 100%; max-width: 100%; max-height: 100%; min-width: 100%; min-height: 100%;">
+    <ui:VisualElement name="root" class="textstyle" style="width: 100%; height: 100%; max-width: 100%; max-height: 100%; min-width: 100%; min-height: 100%;">
         <ui:VisualElement name="LeftPanel" style="width: 400px; height: 100%; flex-wrap: nowrap; flex-direction: column; align-items: center; background-color: rgb(0, 0, 0); padding-right: 0;">
             <ui:VisualElement style="width: 100%; align-items: center; padding-right: 40px;">
                 <ui:VisualElement name="Controls" style="flex-direction: row; align-items: center; padding-top: 0; margin-bottom: 4px; margin-top: 36px; display: flex;">

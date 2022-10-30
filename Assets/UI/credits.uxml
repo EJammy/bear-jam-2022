@@ -9,5 +9,6 @@
         <ui:Label text="Music: Anson Tiong, Sif V." display-tooltip-when-elided="true" name="Music" style="font-size: 40px; -unity-text-align: upper-center;" />
         <ui:Label text="Font: RPGSystem by Axel Lymphos" display-tooltip-when-elided="true" name="Music" style="font-size: 40px; -unity-text-align: upper-center;" />
         <ui:Label text="Created for Bear Jams 2022" display-tooltip-when-elided="true" name="BearJams" style="font-size: 40px; -unity-text-align: upper-center; margin-top: 32px;" />
+        <ui:Button text="Back" display-tooltip-when-elided="true" name="back-button" class="button" style="font-size: 50px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); border-top-left-radius: 9px; border-bottom-left-radius: 9px; border-top-right-radius: 9px; border-bottom-right-radius: 9px; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px; transition-property: all, background-color; transition-duration: 0s, 0s; transition-timing-function: ease, ease; transition-delay: 0s, 0s; margin-top: 35px; width: 200px;" />
     </ui:VisualElement>
 </ui:UXML>

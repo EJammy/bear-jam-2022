@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     TrainSpawner trainSpawner;
     ObstacleSpawner obstacleSpawner;
     public VisualElement UI;
-    public UIDocument gameHUD, winUI, loseUI;
+    public UIDocument gameHUD, winUI, loseUI, titleUI, creditsUI;
     public int mapHeight, mapWidth;
     int reputation, crashes;
     int curTrainArrivals, curStage;
@@ -34,16 +34,6 @@ public class GameManager : MonoBehaviour
 
         audioSrc = GetComponent<AudioSource>();
         audioSrc.playOnAwake = true;
-
-        Grid grid = FindObjectOfType<Grid>();
-        if (grid == null) {
-            Debug.LogError("No grid found!");
-        } else {
-            mapGrid = grid.GetComponent<MapGrid>();
-            trackPlacer = grid.GetComponent<TrackPlacer>();
-            obstacleSpawner = grid.GetComponent<ObstacleSpawner>();
-            trainSpawner = grid.GetComponent<TrainSpawner>();
-        }
 
         UI = gameHUD.rootVisualElement;
         starsUI = new VisualElement[winRep];
@@ -61,17 +51,11 @@ public class GameManager : MonoBehaviour
         winUI.rootVisualElement.Q<Button>("playagain-button").clicked += RestartGame;
         loseUI.rootVisualElement.Q<Button>("playagain-button").clicked += RestartGame;
 
-        mapGrid.Initialize(mapHeight, mapWidth);
-        trackPlacer.Initialize();
-        obstacleSpawner.Initialize();
-        reputation = 0;
-        crashes = 0;
-        curTrainArrivals = 0;
-        curStage = 1;
+        titleUI.rootVisualElement.Q<Button>("play-button").clicked += StartGame;
+        titleUI.rootVisualElement.Q<Button>("credits-button").clicked += ShowCredits;
 
-        obstacleSpawner.SetSpawns(false);
-        trainSpawner.AddStation(new Coords(0, 4), new Coords(11, 4), Coords.RIGHT, Coords.LEFT);
-        trainSpawner.stations[0].spawnDelay = 5.0f;
+        creditsUI.rootVisualElement.Q<Button>("back-button").clicked += BackToMain;
+
     }
 
     // Update is called once per frame
@@ -139,5 +123,42 @@ public class GameManager : MonoBehaviour
 
     private void RestartGame() {
         SceneManager.LoadScene("GameScene");
+    }
+
+    private void StartGame() {
+        Grid grid = FindObjectOfType<Grid>();
+        if (grid == null) {
+            Debug.LogError("No grid found!");
+        } else {
+            mapGrid = grid.GetComponent<MapGrid>();
+            trackPlacer = grid.GetComponent<TrackPlacer>();
+            obstacleSpawner = grid.GetComponent<ObstacleSpawner>();
+            trainSpawner = grid.GetComponent<TrainSpawner>();
+        }
+        
+        titleUI.rootVisualElement.Q<VisualElement>("root").visible = false;
+        mapGrid.Initialize(mapHeight, mapWidth);
+        trackPlacer.Initialize();
+        obstacleSpawner.Initialize();
+        reputation = 0;
+        crashes = 0;
+        curTrainArrivals = 0;
+        curStage = 1;
+
+        obstacleSpawner.SetSpawns(false);
+        trainSpawner.AddStation(new Coords(0, 4), new Coords(11, 4), Coords.RIGHT, Coords.LEFT);
+        trainSpawner.stations[0].spawnDelay = 5.0f;
+    }
+
+    private void ShowCredits() {
+        titleUI.rootVisualElement.Q<VisualElement>("root").visible = false;
+        creditsUI.rootVisualElement.Q<VisualElement>("root").visible = true;
+    }
+
+    private void BackToMain() {
+        titleUI.rootVisualElement.Q<VisualElement>("root").visible = true;
+        creditsUI.rootVisualElement.Q<VisualElement>("root").visible = false;
+        winUI.rootVisualElement.Q<VisualElement>("root").visible = false;
+        loseUI.rootVisualElement.Q<VisualElement>("root").visible = false;
     }
 }

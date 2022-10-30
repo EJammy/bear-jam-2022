@@ -8,6 +8,7 @@ public class TrainController : MonoBehaviour
     int prevDir;
     int nextDir;
     public TrainStation parentStation;
+    public Sprite[] trainSprite;
 
     public Coords Pos { get => _pos;
         set
@@ -19,7 +20,11 @@ public class TrainController : MonoBehaviour
 
     public int Dir {
         get { return nextDir; }
-        set { nextDir = value; }
+        set
+        {
+            nextDir = value;
+            GetComponent<SpriteRenderer>().sprite = trainSprite[nextDir];
+        }
     }
 
     Coords _pos;
@@ -100,11 +105,11 @@ public class TrainController : MonoBehaviour
         if (normalTrack) {
             if (prevDir == opening1)
             {
-                nextDir = opening2;
+                Dir = opening2;
             }
             else if (prevDir == opening2)
             {
-                nextDir = opening1;
+                Dir = opening1;
             }
         }
 
@@ -120,7 +125,7 @@ public class TrainController : MonoBehaviour
                     return;
                 } else {
                     // correct station! go back and score reputation if first time
-                    nextDir = prevDir; 
+                    Dir = prevDir; 
                     if (!parentStation.scored) GameManager.instance.IncReputation();
                     parentStation.scored = true;
                     GameManager.instance.TrainArrived();
@@ -129,7 +134,7 @@ public class TrainController : MonoBehaviour
             }
         }
 
-        if (nextDir == -1)
+        if (Dir == -1)
         {
             Destroy(gameObject);
             GameManager.instance.HandleCrash();

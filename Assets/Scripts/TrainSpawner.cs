@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class TrainStation
 {
@@ -31,7 +32,9 @@ public class TrainSpawner : MonoBehaviour
     float spawnCD;
 
     [SerializeField]
-    TrainController train;
+    TrainController[] train;
+    [SerializeField]
+    public Tile[] stationTiles; // 5x4x2 - line num, facing, start/end
 
     public List<TrainStation> stations;
     int curLineCnt = 0;
@@ -63,7 +66,7 @@ public class TrainSpawner : MonoBehaviour
                     // Debug.Log(" New Train! ");
                     station.spawned = true;
                     station.spawnDelay = spawnCD;
-                    var newTrain = Instantiate(train, MapGrid.instance.WorldPos(station.start), Quaternion.identity);
+                    var newTrain = Instantiate(train[station.lineNum], MapGrid.instance.WorldPos(station.start), Quaternion.identity);
                     newTrain.Pos = station.start;
                     newTrain.Dir = station.startDir;
                     newTrain.parentStation = station;
@@ -76,9 +79,11 @@ public class TrainSpawner : MonoBehaviour
     {
         stations.Add(new TrainStation(start, end, startDir, endDir, spawnCD, curLineCnt));
         TrackPlacer.instance.PlaceTrack(start, (TrackType)((int)TrackType.STATIONT + startDir));
+        MapGrid.instance.SetTile(start, stationTiles[curLineCnt*8+startDir*2]);
         MapGrid.instance.GetTile(start).stationNum = curLineCnt;
         MapGrid.instance.GetTile(start.MoveDir(startDir)).isTargetted = true; // prevent targetting by fireballs
         TrackPlacer.instance.PlaceTrack(end, (TrackType)((int)TrackType.STATIONT + endDir));
+        MapGrid.instance.SetTile(end, stationTiles[curLineCnt*8+endDir*2+1]);
         MapGrid.instance.GetTile(end).stationNum = curLineCnt;
         MapGrid.instance.GetTile(end.MoveDir(endDir)).isTargetted = true;
         curLineCnt++;

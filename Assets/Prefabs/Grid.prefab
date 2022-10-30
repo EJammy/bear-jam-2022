@@ -222,6 +222,7 @@ MonoBehaviour:
   invalid: {fileID: 8300000, guid: a1724c6e7328e7a62af814d976530e50, type: 3}
   placeTile: {fileID: 8300000, guid: 4f6a5aee67f10419cba25efc8e76c99d, type: 3}
   replaceTile: {fileID: 8300000, guid: bc7c863b499fa421599502995d58d360, type: 3}
+  selTile: {fileID: 8300000, guid: 35f4273ce96ddf0419fbd6172d845146, type: 3}
 --- !u!114 &4016002495862216145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObj: {fileID: 6789432664143970825, guid: fc678082e90884b2f92ec44d0bd88d2d, type: 3}
+  fireBall: {fileID: 0}
   spawnTime: 20
   warnDur: 5
   aliveDur: 20

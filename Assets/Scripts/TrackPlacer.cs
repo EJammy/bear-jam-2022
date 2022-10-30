@@ -10,7 +10,7 @@ public class TrackPlacer : MonoBehaviour
     static public TrackPlacer instance { get; private set; }
     public Tile[] tileDict;
     public Tile[] fireballAnim;
-    public AudioClip invalid, placeTile, replaceTile;
+    public AudioClip invalid, placeTile, replaceTile, selTile;
     MapGrid grid;
     GroupBox[] tileBoxes;
     int burntIndex = 0, burntDirection = 1;
@@ -32,13 +32,13 @@ public class TrackPlacer : MonoBehaviour
             tileBoxes[i].style.borderLeftWidth = new StyleFloat(2.0f);
             tileBoxes[i].style.borderRightWidth = new StyleFloat(2.0f);
         }
-        GameManager.instance.UI.Q<GroupBox>("Tile1").RegisterCallback<ClickEvent>(_ => {selected = selections[0];});
-        GameManager.instance.UI.Q<GroupBox>("Tile2").RegisterCallback<ClickEvent>(_ => {selected = selections[1];});
-        GameManager.instance.UI.Q<GroupBox>("Tile3").RegisterCallback<ClickEvent>(_ => {selected = selections[2];});
-        GameManager.instance.UI.Q<GroupBox>("Tile4").RegisterCallback<ClickEvent>(_ => {selected = selections[3];});
-        GameManager.instance.UI.Q<GroupBox>("Tile5").RegisterCallback<ClickEvent>(_ => {selected = selections[4];});
-        GameManager.instance.UI.Q<GroupBox>("Tile6").RegisterCallback<ClickEvent>(_ => {selected = selections[5];});
-        GameManager.instance.UI.Q<GroupBox>("Tile7").RegisterCallback<ClickEvent>(_ => {selected = selections[6];});
+        GameManager.instance.UI.Q<GroupBox>("Tile1").RegisterCallback<ClickEvent>(_ => {selected = selections[0]; GameManager.instance.PlaySFX(selTile);});
+        GameManager.instance.UI.Q<GroupBox>("Tile2").RegisterCallback<ClickEvent>(_ => {selected = selections[1]; GameManager.instance.PlaySFX(selTile);});
+        GameManager.instance.UI.Q<GroupBox>("Tile3").RegisterCallback<ClickEvent>(_ => {selected = selections[2]; GameManager.instance.PlaySFX(selTile);});
+        GameManager.instance.UI.Q<GroupBox>("Tile4").RegisterCallback<ClickEvent>(_ => {selected = selections[3]; GameManager.instance.PlaySFX(selTile);});
+        GameManager.instance.UI.Q<GroupBox>("Tile5").RegisterCallback<ClickEvent>(_ => {selected = selections[4]; GameManager.instance.PlaySFX(selTile);});
+        GameManager.instance.UI.Q<GroupBox>("Tile6").RegisterCallback<ClickEvent>(_ => {selected = selections[5]; GameManager.instance.PlaySFX(selTile);});
+        GameManager.instance.UI.Q<GroupBox>("Tile7").RegisterCallback<ClickEvent>(_ => {selected = selections[6]; GameManager.instance.PlaySFX(selTile);});
         /* why does this not work???
         for (int i = 0; i < 6; i++) {
             Debug.Log(string.Format("Registered box {0} to i={1}", "Tile" + (i + 1).ToString(), i));
@@ -71,18 +71,23 @@ public class TrackPlacer : MonoBehaviour
     void Update()
     {
         // input stuff
+        bool didSelect = false;
         for (int i = 0; i < selections.Length; i++)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i))
             {
                 selected = selections[i];
+                didSelect = true;
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
         {
             selected = TrackType.NONE;
+            didSelect = false;
         }
+
+        if (didSelect) GameManager.instance.PlaySFX(selTile);
 
         for (int i = 0; i < 7; i++) {
             if (selections[i] == selected) {
@@ -122,12 +127,12 @@ public class TrackPlacer : MonoBehaviour
                 lastSelectedCell = selectedCell;
             }
 
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && selected != TrackType.NONE)
             {
                 if (grid.GetTile(selectedCell).isBlocked) {
-                    GameManager.instance.PlayAudio(invalid);
+                    GameManager.instance.PlaySFX(invalid);
                 } else {
-                    GameManager.instance.PlayAudio(grid.GetTile(selectedCell).trackType == TrackType.NONE ? placeTile : replaceTile);
+                    GameManager.instance.PlaySFX(grid.GetTile(selectedCell).trackType == TrackType.NONE ? placeTile : replaceTile);
                     PlaceTrack(selectedCell, selected);
                 }
             }

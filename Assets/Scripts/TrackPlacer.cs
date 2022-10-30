@@ -72,13 +72,14 @@ public class TrackPlacer : MonoBehaviour
 
                 grid.SetTile(selectedCell, preview);
 
-                if (Input.GetKeyDown(KeyCode.Mouse0))
-                {
-                    PlaceTrack(selectedCell, selected);
-                }
                 lastSelectedCell = selectedCell;
             }
 
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !grid.GetTile(selectedCell).isBlocked)
+        {
+            PlaceTrack(selectedCell, selected);
         }
     }
 

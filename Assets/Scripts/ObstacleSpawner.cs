@@ -9,7 +9,7 @@ public class ObstacleSpawner : MonoBehaviour
     public GameObject fireBall;
     // public GameObject obstObj;
 
-    public float firstSpawnTime = 40.0f;
+    public float firstSpawnTime = 50.0f;
     public float spawnTime = 20.0f;
     public float warnDur = 5.0f;
     public float aliveDur = 20.0f;

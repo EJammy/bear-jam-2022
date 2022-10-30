@@ -85,7 +85,7 @@ public class TrackPlacer : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            selected = TrackType.CORNERTL;
+            selected = TrackType.CORNERTR;
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -93,7 +93,7 @@ public class TrackPlacer : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            selected = TrackType.CORNERTR;
+            selected = TrackType.CORNERTL;
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
@@ -151,6 +151,20 @@ public class TrackPlacer : MonoBehaviour
                     GameManager.instance.PlayAudio(grid.GetTile(selectedCell).trackType == TrackType.NONE ? placeTile : replaceTile);
                     PlaceTrack(selectedCell, selected);
                 }
+            }
+            if (Input.GetKey(KeyCode.Mouse0)
+                && !grid.GetTile(selectedCell).isBlocked
+                && grid.GetTile(selectedCell).trackType != selected )
+            {
+                GameManager.instance.PlayAudio(grid.GetTile(selectedCell).trackType == TrackType.NONE ? placeTile : replaceTile);
+                PlaceTrack(selectedCell, selected);
+            }
+            if (Input.GetKey(KeyCode.Mouse1)
+                && !grid.GetTile(selectedCell).isBlocked
+                && grid.GetTile(selectedCell).trackType != TrackType.NONE )
+            {
+                GameManager.instance.PlayAudio(replaceTile);
+                PlaceTrack(selectedCell, TrackType.NONE);
             }
         }
 

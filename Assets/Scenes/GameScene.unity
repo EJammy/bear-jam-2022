@@ -595,6 +595,10 @@ PrefabInstance:
       propertyPath: spawnTime
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 4016002495862216145, guid: c4e2f31c4b81a5428bc33643cb45a1b3, type: 3}
+      propertyPath: firstSpawnTime
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 4016002495862216148, guid: c4e2f31c4b81a5428bc33643cb45a1b3, type: 3}
       propertyPath: m_Name
       value: Grid

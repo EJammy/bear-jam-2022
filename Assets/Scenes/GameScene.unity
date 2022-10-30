@@ -576,8 +576,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: bc7c863b499fa421599502995d58d360, type: 3}
     - target: {fileID: 4016002495862216145, guid: c4e2f31c4b81a5428bc33643cb45a1b3, type: 3}
+      propertyPath: fireBall
+      value: 
+      objectReference: {fileID: 8174232726964863716, guid: 45bf5dc3bff12f548a831ace15ee95bf, type: 3}
+    - target: {fileID: 4016002495862216145, guid: c4e2f31c4b81a5428bc33643cb45a1b3, type: 3}
       propertyPath: spawnTime
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4016002495862216148, guid: c4e2f31c4b81a5428bc33643cb45a1b3, type: 3}
       propertyPath: m_Name

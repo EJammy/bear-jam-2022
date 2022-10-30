@@ -6,6 +6,7 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     public GameObject targetObj;
+    public GameObject fireBall;
     // public GameObject obstObj;
     public float spawnTime = 20.0f;
     public float warnDur = 5.0f;
@@ -67,7 +68,16 @@ public class ObstacleSpawner : MonoBehaviour
         GameManager.instance.PlayAudio(fireSpawn);
         // spawn target
         GameObject curTarget = Instantiate(targetObj, mapGrid.WorldPos(c), Quaternion.identity);
-        yield return new WaitForSeconds(warnDur);
+
+        int frames = 20;
+        float spawnLoc = 4;
+        var fStart = mapGrid.WorldPos(c) + Vector2.up * spawnLoc;
+        var fallingObj = Instantiate(fireBall, fStart, Quaternion.identity);
+        for (int i = 0; i < frames; i++)
+        {
+            fallingObj.transform.position = Vector2.Lerp(fStart, mapGrid.WorldPos(c), ((float) i) / 20);
+            yield return new WaitForSeconds(warnDur / frames);
+        }
         Destroy(curTarget);
 
         // spawn obstacle & destroy tracks

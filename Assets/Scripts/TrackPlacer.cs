@@ -161,14 +161,14 @@ public class TrackPlacer : MonoBehaviour
                 && !grid.GetTile(selectedCell).isBlocked
                 && grid.GetTile(selectedCell).trackType != selected )
             {
-                GameManager.instance.PlayAudio(grid.GetTile(selectedCell).trackType == TrackType.NONE ? placeTile : replaceTile);
+                GameManager.instance.PlaySFX(grid.GetTile(selectedCell).trackType == TrackType.NONE ? placeTile : replaceTile);
                 PlaceTrack(selectedCell, selected);
             }
             if (Input.GetKey(KeyCode.Mouse1)
                 && !grid.GetTile(selectedCell).isBlocked
                 && grid.GetTile(selectedCell).trackType != TrackType.NONE )
             {
-                GameManager.instance.PlayAudio(replaceTile);
+                GameManager.instance.PlaySFX(replaceTile);
                 PlaceTrack(selectedCell, TrackType.NONE);
             }
         }

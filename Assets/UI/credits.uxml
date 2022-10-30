@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/ui-styles.uss?fileID=7433441132597879392&amp;guid=eeebf549a79d841d9be02835dd6e2631&amp;type=3#ui-styles" />
+    <ui:VisualElement class="textstyle" style="width: 100%; height: 100%; align-items: center; justify-content: center;">
+        <ui:Label text="Credits" display-tooltip-when-elided="true" style="font-size: 50px; -unity-text-align: upper-center; margin-bottom: 32px; margin-top: 0;" />
+        <ui:Label text="Programming: Billy Bao, Connor Chang" display-tooltip-when-elided="true" style="font-size: 40px; -unity-text-align: upper-center;" />
+        <ui:Label text="UI: Lena Jeon" display-tooltip-when-elided="true" style="font-size: 40px; -unity-text-align: upper-center;" />
+        <ui:Label text="Art: Lily Yeh, Lena Jeon, Kenney.nl&apos;s Free Game Assets" display-tooltip-when-elided="true" name="art" style="font-size: 40px; -unity-text-align: upper-center;" />
+        <ui:Label text="Sound Effects: Sif V." display-tooltip-when-elided="true" name="SFX" style="font-size: 40px; -unity-text-align: upper-center;" />
+        <ui:Label text="Music: Anson Tiong, Sif V." display-tooltip-when-elided="true" name="Music" style="font-size: 40px; -unity-text-align: upper-center;" />
+        <ui:Label text="Font: RPGSystem by Axel Lymphos" display-tooltip-when-elided="true" name="Music" style="font-size: 40px; -unity-text-align: upper-center;" />
+        <ui:Label text="Created for Bear Jams 2022" display-tooltip-when-elided="true" name="BearJams" style="font-size: 40px; -unity-text-align: upper-center; margin-top: 32px;" />
+    </ui:VisualElement>
+</ui:UXML>

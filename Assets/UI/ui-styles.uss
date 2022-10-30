@@ -10,3 +10,9 @@
     margin-bottom: 4px;
     -unity-font: url('project://database/Assets/UI/1980v202005.ttf?fileID=12800000&guid=786c7d30d71b440acb8ad2252b652a6f&type=3#1980v202005');
 }
+
+.button {
+    color: rgba(0, 0, 0, 255);
+    -unity-background-image-tint-color: rgba(255, 255, 255, 255);
+    background-color: rgba(255, 255, 255, 255);
+}

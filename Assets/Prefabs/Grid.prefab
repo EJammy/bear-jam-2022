@@ -259,8 +259,8 @@ MonoBehaviour:
   - {fileID: 4038049606975779335, guid: 545097f9fc01384ecbc5b15b3f9b8bcb, type: 3}
   - {fileID: 4038049606975779335, guid: baa9c69982b07422698ddb29722048d1, type: 3}
   - {fileID: 4038049606975779335, guid: 17ccb0b545b8e444d97c19c60821fedc, type: 3}
-  - {fileID: 4038049606975779335, guid: 17ccb0b545b8e444d97c19c60821fedc, type: 3}
-  - {fileID: 4038049606975779335, guid: 17ccb0b545b8e444d97c19c60821fedc, type: 3}
+  - {fileID: 4038049606975779335, guid: f52800377996849cc83b7eae23f5a52c, type: 3}
+  - {fileID: 4038049606975779335, guid: 783ddfa8011944f99b7ab62020c5702d, type: 3}
   stationTiles:
   - {fileID: 11400000, guid: dd52d5099f6c144ff92d117d1c556583, type: 2}
   - {fileID: 11400000, guid: faae22184f9064c6182cfaab66dcf17e, type: 2}

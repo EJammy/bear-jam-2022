@@ -4,7 +4,7 @@
         <ui:VisualElement name="LeftPanel" style="width: 30%; height: 100%; flex-wrap: nowrap; flex-direction: column; align-items: center; background-color: rgb(0, 0, 0);">
             <ui:VisualElement name="Controls" style="flex-direction: row; align-items: center; padding-top: 0; margin-bottom: 4px; margin-top: 36px;">
                 <ui:VisualElement name="Control-Img" style="background-image: url(&apos;project://database/Assets/Sprites/kenney_tilemap_white_packed_keyboardonly.png?fileID=1554895213&amp;guid=7224e35b97ebf40d384c67b5b3de9d8b&amp;type=3#kenney_tilemap_white_packed_keyboardonly_273&apos;); width: 32px; height: 32px;" />
-                <ui:Label text=": Select Tile" display-tooltip-when-elided="true" name="Control-ClickTile" class="textstyle" style="-unity-font-style: bold; color: rgb(255, 255, 255);" />
+                <ui:Label text=": Select Tile" display-tooltip-when-elided="true" name="Control-ClickTile" class="textstyle" style="-unity-font-style: normal; color: rgb(255, 255, 255);" />
             </ui:VisualElement>
             <ui:VisualElement name="TileSelectorArea" style="height: 324px; width: 100%; flex-wrap: wrap; align-items: center; margin-top: 4px; margin-bottom: 4px; justify-content: flex-start; padding-top: 16px;">
                 <ui:VisualElement name="column1" style="width: 50%; height: 100%; align-items: flex-end;">

@@ -1,6 +1,8 @@
 .textstyle {
-    color: rgba(255, 255, 255, 255);
+    color: rgb(255, 255, 255);
     -unity-font: url('project://database/Assets/UI/1980v202005.ttf?fileID=12800000&guid=786c7d30d71b440acb8ad2252b652a6f&type=3#1980v202005');
+    -unity-font-definition: url('project://database/Assets/UI/RPGSystem%20SDF.asset?fileID=11400000&guid=fd65c879e80c14194bb91fba5a8d97ca&type=2#RPGSystem SDF');
+    font-size: 20px;
 }
 
 .track-element {

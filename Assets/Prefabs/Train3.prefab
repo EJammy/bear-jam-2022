@@ -103,4 +103,4 @@ MonoBehaviour:
   - {fileID: -335638740, guid: e53c59932c87d4a6197f382877cf43fc, type: 3}
   - {fileID: -1840392720, guid: e53c59932c87d4a6197f382877cf43fc, type: 3}
   dieAnim:
-  - {fileID: 1186852143, guid: 5c89730733207430db037755da9383dd, type: 3}
+  - {fileID: 21300000, guid: a91333f64e6f840a1bd5385046746e22, type: 3}

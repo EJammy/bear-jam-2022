@@ -127,7 +127,7 @@ public class TrainSpawner : MonoBehaviour
             else sfacing = sDirs[UnityEngine.Random.Range(0, sDirs.Count)];
         } while (!ok);
         MapGrid.instance.GetTile(sc).isBlocked = true;
-        MapGrid.instance.GetTile(sc.MoveDir(sside)).isTargetted = true;
+        MapGrid.instance.GetTile(sc.MoveDir(sfacing)).isTargetted = true;
         // spawn end
         int ex, ey, eside, efacing = -1;
         Coords ec;

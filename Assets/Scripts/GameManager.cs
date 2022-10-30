@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     TrainSpawner trainSpawner;
     ObstacleSpawner obstacleSpawner;
     public VisualElement UI;
+    public UIDocument gameHUD;
     public int mapHeight, mapWidth;
     int reputation, crashes;
     int curTrainArrivals, curStage;
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
             trainSpawner = grid.GetComponent<TrainSpawner>();
         }
 
-        UI = FindObjectOfType<UIDocument>().GetComponent<UIDocument>().rootVisualElement;
+        UI = gameHUD.rootVisualElement;
         starsUI = new VisualElement[winRep];
         for (int i = 0; i < winRep; i++) {
             starsUI[i] = UI.Q<VisualElement>("star" + (i+1).ToString());

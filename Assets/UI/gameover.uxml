@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/ui-styles.uss?fileID=7433441132597879392&amp;guid=eeebf549a79d841d9be02835dd6e2631&amp;type=3#ui-styles" />
+    <ui:VisualElement class="textstyle" style="width: 100%; height: 100%; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.67);">
+        <ui:Label text="Game Over" display-tooltip-when-elided="true" name="gameover-text" style="font-size: 100px; -unity-text-align: upper-center; -unity-text-outline-width: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
+        <ui:VisualElement name="strikes" style="flex-direction: row;">
+            <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=972868850&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_97&apos;); width: 48px; height: 48px;" />
+            <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=972868850&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_97&apos;); width: 48px; height: 48px;" />
+            <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=972868850&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_97&apos;); width: 48px; height: 48px;" />
+        </ui:VisualElement>
+        <ui:Label text="Three trains were lost!" display-tooltip-when-elided="true" name="explanation-text" style="-unity-text-align: upper-center; font-size: 50px; margin-bottom: 20px;" />
+        <ui:Button text="Play Again" display-tooltip-when-elided="true" style="font-size: 50px; background-color: rgba(255, 255, 255, 255); color: rgba(0, 0, 0, 255); border-top-left-radius: 9px; border-bottom-left-radius: 9px; border-top-right-radius: 9px; border-bottom-right-radius: 9px; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px; transition-property: all, background-color; transition-duration: 0s, 0s; transition-timing-function: ease, ease; transition-delay: 0s, 0s;" />
+    </ui:VisualElement>
+</ui:UXML>

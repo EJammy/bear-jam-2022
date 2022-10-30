@@ -46,6 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crashAudio: {fileID: 8300000, guid: d7d0cdd6a7f5dc6e2985805bdf87efb6, type: 3}
+  repAudio: {fileID: 8300000, guid: 4db9c4535c2fbab96914027883addb94, type: 3}
+  gameHUD: {fileID: 0}
+  winUI: {fileID: 0}
+  loseUI: {fileID: 0}
+  titleUI: {fileID: 0}
+  creditsUI: {fileID: 0}
   mapHeight: 10
   mapWidth: 12
   emptyStar: {fileID: -2140602402, guid: 4b09c0b581f094784ae924c78b3edbac, type: 3}
@@ -66,7 +72,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.6
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

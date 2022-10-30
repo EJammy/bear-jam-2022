@@ -88,7 +88,7 @@ public class TrainSpawner : MonoBehaviour
     {
         bool ok = true;
         // spawn start
-        int sx, sy, sside;
+        int sx, sy, sside, sfacing = -1;
         Coords sc;
         do {
             ok = true;
@@ -124,11 +124,12 @@ public class TrainSpawner : MonoBehaviour
                     }
             }
             if (sDirs.Count == 0) ok = false;
-            else sside = sDirs[UnityEngine.Random.Range(0, sDirs.Count)];
+            else sfacing = sDirs[UnityEngine.Random.Range(0, sDirs.Count)];
         } while (!ok);
         MapGrid.instance.GetTile(sc).isBlocked = true;
+        MapGrid.instance.GetTile(sc.MoveDir(sside)).isTargetted = true;
         // spawn end
-        int ex, ey, eside;
+        int ex, ey, eside, efacing = -1;
         Coords ec;
         do {
             ok = true;
@@ -164,8 +165,8 @@ public class TrainSpawner : MonoBehaviour
                     }
             }
             if (eDirs.Count == 0) ok = false;
-            else eside = eDirs[UnityEngine.Random.Range(0, eDirs.Count)];
+            else efacing = eDirs[UnityEngine.Random.Range(0, eDirs.Count)];
         } while (!ok);
-        AddStation(sc, ec, sside, eside);
+        AddStation(sc, ec, sfacing, efacing);
     }
 }

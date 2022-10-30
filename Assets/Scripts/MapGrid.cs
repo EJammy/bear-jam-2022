@@ -16,25 +16,20 @@ public class MapGrid : MonoBehaviour
     public MapTile[,] tiles;
     [System.NonSerialized]
     public int height, width;
+    bool _init = false;
 
     public class MapTile
     {
         public TrackType trackType = TrackType.NONE; // has tracks?
         public bool isBlocked = false; // blocked by obstacle?
         public bool isTargetted = false; // either currently being targeted, or still burning
+        public int stationNum = -1; // if this is a station, which line?
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
-
-        Tilemap[] maps = GetComponentsInChildren<Tilemap>();
-        foreach (Tilemap tm in maps) {
-            if (tm.tag == "Tracks") tilemap = tm;
-            else if (tm.tag == "Ground") groundTilemap = tm;
-        }
-        grid = GetComponent<Grid>();
+        if (!_init) Initialize(10, 10);
     }
 
     // Update is called once per frame
@@ -44,7 +39,14 @@ public class MapGrid : MonoBehaviour
 
     public void Initialize(int height, int width)
     {
-        tilemap = GetComponentInChildren<Tilemap>();
+        _init = true;
+        instance = this;
+
+        Tilemap[] maps = GetComponentsInChildren<Tilemap>();
+        foreach (Tilemap tm in maps) {
+            if (tm.tag == "Tracks") tilemap = tm;
+            else if (tm.tag == "Ground") groundTilemap = tm;
+        }
         grid = GetComponent<Grid>();
         this.height = height;
         this.width = width;

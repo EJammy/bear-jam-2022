@@ -7,7 +7,7 @@ public class TrainController : MonoBehaviour
 {
     int prevDir;
     int nextDir;
-    public TrainSpawner.TrainStation parentStation;
+    public TrainStation parentStation;
 
     public Coords Pos { get => _pos;
         set
@@ -55,6 +55,7 @@ public class TrainController : MonoBehaviour
         nextDir = -1;
 
         moveCD = timeBetweenMove;
+        bool normalTrack = true;
         int opening1 = -1;
         int opening2 = -1;
         switch(MapGrid.instance.GetTile(nextPos).trackType)
@@ -85,18 +86,44 @@ public class TrainController : MonoBehaviour
                 break;
             case TrackType.CROSS:
                 nextDir = Coords.OppDir(prevDir);
-                opening1 = -1;
-                opening2 = -1;
+                normalTrack = false;
+                break;
+            case TrackType.STATIONT:
+            case TrackType.STATIONB:
+            case TrackType.STATIONL:
+            case TrackType.STATIONR:
+                normalTrack = false;
                 break;
         }
 
-        if (prevDir == opening1)
-        {
-            nextDir = opening2;
+        if (normalTrack) {
+            if (prevDir == opening1)
+            {
+                nextDir = opening2;
+            }
+            else if (prevDir == opening2)
+            {
+                nextDir = opening1;
+            }
         }
-        else if (prevDir == opening2)
-        {
-            nextDir = opening1;
+
+        int stationType = TrackUtils.stationType(MapGrid.instance.GetTile(nextPos).trackType);
+        if (stationType != -1) {
+            if (prevDir == stationType) {
+                // reached station from correct direction
+                if (parentStation.lineNum != MapGrid.instance.GetTile(nextPos).stationNum) {
+                    // wrong station - may want special handling for animation purposes
+                    Destroy(gameObject);
+                    GameManager.instance.HandleCrash();
+                    parentStation.spawned = false;
+                    return;
+                } else {
+                    // correct station! go back and score reputation if first time
+                    nextDir = Coords.OppDir(prevDir); 
+                    if (!parentStation.scored) GameManager.instance.IncReputation();
+                    parentStation.scored = true;
+                }
+            }
         }
 
         if (nextDir == -1)

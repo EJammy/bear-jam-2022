@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     MapGrid mapGrid;
     TrackPlacer trackPlacer;
+    TrainSpawner trainSpawner;
     ObstacleSpawner obstacleSpawner;
     public int mapHeight, mapWidth;
     int reputation, crashes;
@@ -25,19 +26,22 @@ public class GameManager : MonoBehaviour
             mapGrid = grid.GetComponent<MapGrid>();
             trackPlacer = grid.GetComponent<TrackPlacer>();
             obstacleSpawner = grid.GetComponent<ObstacleSpawner>();
+            trainSpawner = grid.GetComponent<TrainSpawner>();
         }
         mapGrid.Initialize(mapHeight, mapWidth);
         trackPlacer.Initialize();
+        obstacleSpawner.Initialize();
         reputation = 0;
         crashes = 0;
         
         // testing
-        // for (int i = 0; i < mapHeight; i++) {
-        //     for (int j = 0; j < mapWidth; j++) {
-        //         trackPlacer.PlaceTrack(new Coords(i, j), (TrackType)((i + j) % 9));
-        //     }
-        // }
+        for (int i = 0; i < mapHeight; i++) {
+            for (int j = 0; j < mapWidth; j++) {
+                trackPlacer.PlaceTrack(new Coords(i, j), (TrackType)((i + j) % 9));
+            }
+        }
         obstacleSpawner.SetSpawns(true);
+        trainSpawner.AddStation(new Coords(0, 0), new Coords(4, 4), Coords.RIGHT, Coords.UP);
     }
 
     // Update is called once per frame
@@ -53,7 +57,7 @@ public class GameManager : MonoBehaviour
             // TODO: sadness :(
         }
     }
-    void IncReputation() {
+    public void IncReputation() {
         Debug.Log(string.Format("Rep increased! Total rep: {0}", reputation));
         reputation++;
     }

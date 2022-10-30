@@ -16,6 +16,10 @@ public class TrackPlacer : MonoBehaviour
         instance = this;
         grid = GetComponent<MapGrid>();
     }
+    public void Initialize() {
+        instance = this;
+        grid = GetComponent<MapGrid>();
+    }
 
     TrackType selected = TrackType.NONE;
     Coords lastSelectedCell;
@@ -78,13 +82,9 @@ public class TrackPlacer : MonoBehaviour
         }
     }
 
-    public void Initialize() {
-        grid = GetComponent<MapGrid>();
-    }
-
     public void PlaceTrack(Coords pos, TrackType type) {
         grid.tiles[pos.x, pos.y].trackType = type;
-        grid.tiles[pos.x, pos.y].isBlocked = (type == TrackType.OBSTACLE || (int)type >= (int)TrackType.STATIONT);
+        grid.tiles[pos.x, pos.y].isBlocked = (type == TrackType.OBSTACLE || TrackUtils.stationType(type) != -1);
         grid.SetTile(pos, tileDict[(int)type]);
     }
 }

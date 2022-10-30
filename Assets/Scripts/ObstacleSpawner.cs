@@ -22,7 +22,7 @@ public class ObstacleSpawner : MonoBehaviour
         mapGrid = GetComponent<MapGrid>();
     }
 
-    void Initialize()
+    public void Initialize()
     {
         trackPlacer = GetComponent<TrackPlacer>();
         mapGrid = GetComponent<MapGrid>();

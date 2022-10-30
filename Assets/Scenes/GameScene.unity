@@ -170,7 +170,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: 0b7deec6aa9ca4aec85f664565c2431d, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 2e15fb738ac8a40a0bf16ebe682ec915, type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 1
 --- !u!1 &372601492
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +398,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: 0b7deec6aa9ca4aec85f664565c2431d, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 01448758b8bb84e9296ae11e17b0eedf, type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 1
 --- !u!1 &1717271140
 GameObject:
   m_ObjectHideFlags: 0

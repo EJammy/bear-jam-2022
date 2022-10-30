@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
     TrainSpawner trainSpawner;
     ObstacleSpawner obstacleSpawner;
     public VisualElement UI;
-    public UIDocument gameHUD;
+    public UIDocument gameHUD, winUI, loseUI;
     public int mapHeight, mapWidth;
     int reputation, crashes;
     int curTrainArrivals, curStage;
@@ -54,6 +55,12 @@ public class GameManager : MonoBehaviour
             strikesUI[i] = UI.Q<VisualElement>("strike" + (i+1).ToString());
         }
 
+        winUI.rootVisualElement.Q<Button>("playagain-button").SetEnabled(false);
+        loseUI.rootVisualElement.Q<Button>("playagain-button").SetEnabled(false);
+
+        winUI.rootVisualElement.Q<Button>("playagain-button").clicked += RestartGame;
+        loseUI.rootVisualElement.Q<Button>("playagain-button").clicked += RestartGame;
+
         mapGrid.Initialize(mapHeight, mapWidth);
         trackPlacer.Initialize();
         obstacleSpawner.Initialize();
@@ -78,12 +85,16 @@ public class GameManager : MonoBehaviour
         strikesUI[crashes].style.backgroundImage = new StyleBackground(filledStrike);
         crashes++;
         Debug.Log(string.Format("Crashed! Total crashes: {0}", crashes));
-        if (crashes >= 3) {
+        if (crashes >= loseCrashes) {
             // sadness :( stop spawning trains, and stop moving trains
             trainSpawner.enabled = false;
             foreach (TrainController train in FindObjectsOfType<TrainController>()) {
                 train.enabled = false;
             }
+            loseUI.rootVisualElement.Q<VisualElement>("root").visible = true;
+            loseUI.rootVisualElement.Q<Button>("playagain-button").SetEnabled(true);
+            trackPlacer.enabled = false;
+            audioSrc.Stop();
             Debug.Log("GAME OVER");
         }
     }
@@ -102,6 +113,10 @@ public class GameManager : MonoBehaviour
             foreach (TrainController train in FindObjectsOfType<TrainController>()) {
                 train.enabled = false;
             }
+            winUI.rootVisualElement.Q<VisualElement>("root").visible = true;
+            winUI.rootVisualElement.Q<Button>("playagain-button").SetEnabled(true);
+            trackPlacer.enabled = false;
+            audioSrc.Stop();
             Debug.Log("WIN");
         }
     }
@@ -120,5 +135,9 @@ public class GameManager : MonoBehaviour
     public void PlayAudio(AudioClip clip)
     {
         audioSrc.PlayOneShot(clip);
+    }
+
+    private void RestartGame() {
+        SceneManager.LoadScene("GameScene");
     }
 }

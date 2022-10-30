@@ -401,6 +401,14 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 4007516715972162065, guid: cd11bedf4c0179eb7b9ae8f7d47a042b, type: 3}
+      propertyPath: winUI
+      value: 
+      objectReference: {fileID: 202070647}
+    - target: {fileID: 4007516715972162065, guid: cd11bedf4c0179eb7b9ae8f7d47a042b, type: 3}
+      propertyPath: loseUI
+      value: 
+      objectReference: {fileID: 1683834200}
+    - target: {fileID: 4007516715972162065, guid: cd11bedf4c0179eb7b9ae8f7d47a042b, type: 3}
       propertyPath: gameHUD
       value: 
       objectReference: {fileID: 1504012167}

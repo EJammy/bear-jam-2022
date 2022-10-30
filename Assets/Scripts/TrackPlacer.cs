@@ -8,6 +8,7 @@ public class TrackPlacer : MonoBehaviour
     // Singleton
     static public TrackPlacer instance { get; private set; }
     public Tile[] tileDict;
+    public AudioClip invalid, placeTile, replaceTile;
     MapGrid grid;
 
     // Start is called before the first frame update
@@ -77,9 +78,14 @@ public class TrackPlacer : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !grid.GetTile(selectedCell).isBlocked)
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            PlaceTrack(selectedCell, selected);
+            if (grid.GetTile(selectedCell).isBlocked) {
+                GameManager.instance.PlayAudio(invalid);
+            } else {
+                GameManager.instance.PlayAudio(grid.GetTile(selectedCell).trackType == TrackType.NONE ? placeTile : replaceTile);
+                PlaceTrack(selectedCell, selected);
+            }
         }
     }
 

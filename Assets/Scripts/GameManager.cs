@@ -6,8 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     AudioClip crashAudio;
-    [SerializeField]
-    AudioClip music;
+    AudioSource audioSrc;
 
     // Singleton
     static public GameManager instance { get; private set; }
@@ -25,7 +24,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayAudio(music);
+        audioSrc = GetComponent<AudioSource>();
+        audioSrc.playOnAwake = true;
 
         instance = this;
 
@@ -102,6 +102,6 @@ public class GameManager : MonoBehaviour
     // TODO: Manage music
     public void PlayAudio(AudioClip clip)
     {
-        GetComponent<AudioSource>().PlayOneShot(clip);
+        audioSrc.PlayOneShot(clip);
     }
 }

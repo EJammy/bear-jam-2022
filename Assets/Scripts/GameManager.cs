@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     TrackPlacer trackPlacer;
     TrainSpawner trainSpawner;
     ObstacleSpawner obstacleSpawner;
+    public VisualElement UI;
     public int mapHeight, mapWidth;
     int reputation, crashes;
     int curTrainArrivals, curStage;
@@ -24,10 +26,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
+
         audioSrc = GetComponent<AudioSource>();
         audioSrc.playOnAwake = true;
-
-        instance = this;
 
         Grid grid = FindObjectOfType<Grid>();
         if (grid == null) {
@@ -38,6 +40,9 @@ public class GameManager : MonoBehaviour
             obstacleSpawner = grid.GetComponent<ObstacleSpawner>();
             trainSpawner = grid.GetComponent<TrainSpawner>();
         }
+
+        UI = FindObjectOfType<UIDocument>().GetComponent<UIDocument>().rootVisualElement;
+
         mapGrid.Initialize(mapHeight, mapWidth);
         trackPlacer.Initialize();
         obstacleSpawner.Initialize();

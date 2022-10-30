@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 
 public class TrackPlacer : MonoBehaviour
 {
@@ -10,16 +11,35 @@ public class TrackPlacer : MonoBehaviour
     public Tile[] tileDict;
     public AudioClip invalid, placeTile, replaceTile;
     MapGrid grid;
+    bool _init = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
-        grid = GetComponent<MapGrid>();
     }
     public void Initialize() {
+        _init = true;
         instance = this;
         grid = GetComponent<MapGrid>();
+        GameManager.instance.UI.Q<GroupBox>("Tile1").RegisterCallback<ClickEvent>(_ => {selected = selections[0];});
+        GameManager.instance.UI.Q<GroupBox>("Tile2").RegisterCallback<ClickEvent>(_ => {selected = selections[1];});
+        GameManager.instance.UI.Q<GroupBox>("Tile3").RegisterCallback<ClickEvent>(_ => {selected = selections[2];});
+        GameManager.instance.UI.Q<GroupBox>("Tile4").RegisterCallback<ClickEvent>(_ => {selected = selections[3];});
+        GameManager.instance.UI.Q<GroupBox>("Tile5").RegisterCallback<ClickEvent>(_ => {selected = selections[4];});
+        GameManager.instance.UI.Q<GroupBox>("Tile6").RegisterCallback<ClickEvent>(_ => {selected = selections[5];});
+        GameManager.instance.UI.Q<GroupBox>("Tile7").RegisterCallback<ClickEvent>(_ => {selected = selections[6];});
+        /* why does this not work???
+        for (int i = 0; i < 6; i++) {
+            Debug.Log(string.Format("Registered box {0} to i={1}", "Tile" + (i + 1).ToString(), i));
+            GroupBox box = GameManager.instance.UI.Q<GroupBox>("Tile" + (i + 1).ToString());
+            box.RegisterCallback<ClickEvent>(
+                ev => {
+                    Debug.Log(string.Format("Clicked Tile {0}", (i+1)));
+                    selected = selections[i];
+                }
+            );
+        }
+        */
     }
 
     TrackType selected = TrackType.NONE;
@@ -27,12 +47,12 @@ public class TrackPlacer : MonoBehaviour
 
     readonly TrackType[] selections =
     {
-        TrackType.HORI,
         TrackType.VERTI,
-        TrackType.CORNERTL,
-        TrackType.CORNERTR,
-        TrackType.CORNERBL,
+        TrackType.HORI,
         TrackType.CORNERBR,
+        TrackType.CORNERBL,
+        TrackType.CORNERTR,
+        TrackType.CORNERTL,
         TrackType.CROSS,
     };
 
@@ -76,15 +96,14 @@ public class TrackPlacer : MonoBehaviour
                 lastSelectedCell = selectedCell;
             }
 
-        }
-
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            if (grid.GetTile(selectedCell).isBlocked) {
-                GameManager.instance.PlayAudio(invalid);
-            } else {
-                GameManager.instance.PlayAudio(grid.GetTile(selectedCell).trackType == TrackType.NONE ? placeTile : replaceTile);
-                PlaceTrack(selectedCell, selected);
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                if (grid.GetTile(selectedCell).isBlocked) {
+                    GameManager.instance.PlayAudio(invalid);
+                } else {
+                    GameManager.instance.PlayAudio(grid.GetTile(selectedCell).trackType == TrackType.NONE ? placeTile : replaceTile);
+                    PlaceTrack(selectedCell, selected);
+                }
             }
         }
     }

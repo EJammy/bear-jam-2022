@@ -244,6 +244,10 @@ MonoBehaviour:
   fireFall: {fileID: 8300000, guid: 4edcb5ca397d9435dad8d92de9bf9dfb, type: 3}
   fireHit: {fileID: 8300000, guid: 8cc49c987a6b145aeaf4644f9ca9d338, type: 3}
   fireBurn: {fileID: 8300000, guid: 5390702a9d9db45ed993fc0288a19fdc, type: 3}
+  roarSFX:
+  - {fileID: 8300000, guid: 63e3bd2c0637a2c589bd78dc20488c9c, type: 3}
+  - {fileID: 8300000, guid: 38939f2dfc1e74dd4a8bdee2fe1c883a, type: 3}
+  - {fileID: 8300000, guid: e6e63d660da9941d3b91b2f5f6f61cd0, type: 3}
 --- !u!114 &4615444309405672591
 MonoBehaviour:
   m_ObjectHideFlags: 0

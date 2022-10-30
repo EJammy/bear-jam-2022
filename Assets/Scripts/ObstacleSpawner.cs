@@ -9,7 +9,6 @@ public class ObstacleSpawner : MonoBehaviour
     public GameObject fireBall;
     // public GameObject obstObj;
 
-    public float firstSpawnTime = 50.0f;
     public float spawnTime = 20.0f;
     public float warnDur = 5.0f;
     public float aliveDur = 20.0f;
@@ -17,10 +16,12 @@ public class ObstacleSpawner : MonoBehaviour
     public int spawnCnt = 3;
 
     public AudioClip fireSpawn, fireFall, fireHit, fireBurn;
+    public AudioClip[] roarSFX;
     TrackPlacer trackPlacer;
     MapGrid mapGrid;
-    bool isSpawning;
+    bool isSpawning, isRoaring;
     float curTime = 0.0f;
+    const float roarTime = 1.5f;
     
     // Start is called before the first frame update
     void Start()
@@ -41,20 +42,19 @@ public class ObstacleSpawner : MonoBehaviour
 
         if (isSpawning) {
             curTime += Time.deltaTime;
-            if (curTime >= spawnTime) {
+            if (!isRoaring && curTime >= spawnTime) {
                 curTime = 0f;
-                List<Coords> spawnLoc = RandomizeLoc(spawnCnt);
+                isRoaring = true;
+                // do roar
+                GameManager.instance.PlaySFX(roarSFX[UnityEngine.Random.Range(0, roarSFX.Length)]);
+            } else if (isRoaring && curTime >= roarTime) {
+                curTime = 0f;
+                isRoaring = false;
+                List<Coords> spawnLoc = RandomizeLoc(3);
                 foreach (Coords c in spawnLoc) {
                     StartCoroutine(SpawnSingle(c));
                 }
             }
-        }
-        else
-        {
-            if (firstSpawnTime > 0)
-                firstSpawnTime -= Time.deltaTime;
-            else
-                SetSpawns(true);
         }
     }
 

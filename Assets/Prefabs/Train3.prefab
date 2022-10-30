@@ -104,3 +104,4 @@ MonoBehaviour:
   - {fileID: -1840392720, guid: e53c59932c87d4a6197f382877cf43fc, type: 3}
   dieAnim:
   - {fileID: 1186852143, guid: 5c89730733207430db037755da9383dd, type: 3}
+  timeBetweenMove: 1.5

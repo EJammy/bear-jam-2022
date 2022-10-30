@@ -8,9 +8,14 @@ public class ObstacleSpawner : MonoBehaviour
     public GameObject targetObj;
     public GameObject fireBall;
     // public GameObject obstObj;
+
+    public float firstSpawnTime = 40.0f;
     public float spawnTime = 20.0f;
     public float warnDur = 5.0f;
     public float aliveDur = 20.0f;
+
+    public int spawnCnt = 3;
+
     public AudioClip fireSpawn, fireFall, fireHit, fireBurn;
     TrackPlacer trackPlacer;
     MapGrid mapGrid;
@@ -33,15 +38,23 @@ public class ObstacleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (isSpawning) {
             curTime += Time.deltaTime;
             if (curTime >= spawnTime) {
                 curTime = 0f;
-                List<Coords> spawnLoc = RandomizeLoc(3);
+                List<Coords> spawnLoc = RandomizeLoc(spawnCnt);
                 foreach (Coords c in spawnLoc) {
                     StartCoroutine(SpawnSingle(c));
                 }
             }
+        }
+        else
+        {
+            if (firstSpawnTime > 0)
+                firstSpawnTime -= Time.deltaTime;
+            else
+                SetSpawns(true);
         }
     }
 

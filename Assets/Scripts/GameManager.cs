@@ -107,10 +107,7 @@ public class GameManager : MonoBehaviour
         reputation++;
         PlayAudio(repAudio);
         Debug.Log(string.Format("Rep increased! Total rep: {0}", reputation));
-        if (reputation == 1) {
-            // start the attack!
-            obstacleSpawner.SetSpawns(true);
-        }
+
         if (reputation >= winRep) {
             // win! stop spawning obstacles, trains, and stop moving trains
             obstacleSpawner.SetSpawns(false);

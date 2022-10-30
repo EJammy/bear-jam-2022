@@ -34,8 +34,8 @@ public class TrainController : MonoBehaviour
     float moveCD;
 
     [SerializeField]
-    readonly float timeBetweenMove = 1.5f;
-    readonly float timeAtStation = 5.0f;
+    float timeBetweenMove = 1.5f;
+    float timeAtStation = 5.0f;
 
     // Start is called before the first frame update
     void Start()

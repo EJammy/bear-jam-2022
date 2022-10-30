@@ -154,6 +154,11 @@ public class GameManager : MonoBehaviour
         sfxSrc.PlayOneShot(clip);
     }
 
+    public void PlaySFX(AudioClip clip, float vol)
+    {
+        sfxSrc.PlayOneShot(clip, vol);
+    }
+
     private void RestartGame() {
         SceneManager.LoadScene("GameScene");
     }

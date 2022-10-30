@@ -84,22 +84,27 @@ public class TrackPlacer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             selected = TrackType.CORNERBR;
+            didSelect = true;
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
             selected = TrackType.CORNERTR;
+            didSelect = true;
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
             selected = TrackType.CORNERBL;
+            didSelect = true;
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             selected = TrackType.CORNERTL;
+            didSelect = true;
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             selected = TrackType.CROSS;
+            didSelect = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))

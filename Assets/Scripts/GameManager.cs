@@ -8,6 +8,13 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     AudioClip crashAudio;
+    [SerializeField]
+    AudioClip repAudio;
+
+    // Do we need this when we have crash audio?
+    // [SerializeField]
+    // AudioClip strikeAudio;
+
     AudioSource audioSrc;
 
     // Singleton
@@ -98,6 +105,7 @@ public class GameManager : MonoBehaviour
     public void IncReputation() {
         starsUI[reputation].style.backgroundImage = new StyleBackground(filledStar);
         reputation++;
+        PlayAudio(repAudio);
         Debug.Log(string.Format("Rep increased! Total rep: {0}", reputation));
         if (reputation == 1) {
             // start the attack!

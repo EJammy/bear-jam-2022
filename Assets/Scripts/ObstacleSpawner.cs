@@ -79,6 +79,7 @@ public class ObstacleSpawner : MonoBehaviour
             yield return new WaitForSeconds(warnDur / frames);
         }
         Destroy(curTarget);
+        Destroy(fallingObj);
 
         // spawn obstacle & destroy tracks
         GameManager.instance.PlayAudio(fireHit);

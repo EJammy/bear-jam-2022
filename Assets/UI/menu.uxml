@@ -50,7 +50,7 @@
                                 <ui:Label text="0/9" display-tooltip-when-elided="true" name="Tile5-Counter" class="textstyle" />
                             </ui:VisualElement>
                             <ui:VisualElement class="track-element" style="align-items: center; flex-wrap: nowrap;">
-                                <ui:GroupBox name="Tile4" style="flex-direction: row; margin-top: 1px; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-left: 5px; margin-right: 5px; margin-bottom: 3px;">
+                                <ui:GroupBox name="Tile6" style="flex-direction: row; margin-top: 1px; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-left: 5px; margin-right: 5px; margin-bottom: 3px;">
                                     <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/kenney_tilemap_white_packed_keyboardonly.png?fileID=-2053629714&amp;guid=7224e35b97ebf40d384c67b5b3de9d8b&amp;type=3#kenney_tilemap_white_packed_keyboardonly_22&apos;); width: 32px; height: 32px;" />
                                     <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/Tiles/left%20to%20up0000.png?fileID=21300000&amp;guid=8156dcc79ae7a44c0966d855610f0ce3&amp;type=3#left to up0000&apos;); width: 32px; height: 32px;" />
                                 </ui:GroupBox>

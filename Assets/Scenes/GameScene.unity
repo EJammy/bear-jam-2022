@@ -510,6 +510,10 @@ PrefabInstance:
       propertyPath: gameHUD
       value: 
       objectReference: {fileID: 1504012167}
+    - target: {fileID: 4007516715972162065, guid: cd11bedf4c0179eb7b9ae8f7d47a042b, type: 3}
+      propertyPath: repAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 4db9c4535c2fbab96914027883addb94, type: 3}
     - target: {fileID: 4007516715972162066, guid: cd11bedf4c0179eb7b9ae8f7d47a042b, type: 3}
       propertyPath: m_RootOrder
       value: 2

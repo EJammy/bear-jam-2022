@@ -262,6 +262,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3146738684667073623, guid: cd11bedf4c0179eb7b9ae8f7d47a042b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e115227827d9204b84fb8c6b26b454b, type: 3}
     - target: {fileID: 4007516715972162064, guid: cd11bedf4c0179eb7b9ae8f7d47a042b, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -319,9 +323,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4016002495862216144, guid: c4e2f31c4b81a5428bc33643cb45a1b3, type: 3}
+      propertyPath: invalid
+      value: 
+      objectReference: {fileID: 8300000, guid: a1724c6e7328e7a62af814d976530e50, type: 3}
+    - target: {fileID: 4016002495862216144, guid: c4e2f31c4b81a5428bc33643cb45a1b3, type: 3}
+      propertyPath: placeTile
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f6a5aee67f10419cba25efc8e76c99d, type: 3}
+    - target: {fileID: 4016002495862216144, guid: c4e2f31c4b81a5428bc33643cb45a1b3, type: 3}
+      propertyPath: replaceTile
+      value: 
+      objectReference: {fileID: 8300000, guid: bc7c863b499fa421599502995d58d360, type: 3}
     - target: {fileID: 4016002495862216145, guid: c4e2f31c4b81a5428bc33643cb45a1b3, type: 3}
       propertyPath: spawnTime
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4016002495862216148, guid: c4e2f31c4b81a5428bc33643cb45a1b3, type: 3}
       propertyPath: m_Name

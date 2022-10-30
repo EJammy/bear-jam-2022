@@ -215,6 +215,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b9aabddb8d1524e76a0c0905e0ecfb1d, type: 2}
   - {fileID: 11400000, guid: 40f5be912f63341a18a71afd34c03d70, type: 2}
   - {fileID: 11400000, guid: d8d49512909474b9cab8df8685b0622c, type: 2}
+  invalid: {fileID: 8300000, guid: a1724c6e7328e7a62af814d976530e50, type: 3}
+  placeTile: {fileID: 8300000, guid: 4f6a5aee67f10419cba25efc8e76c99d, type: 3}
+  replaceTile: {fileID: 8300000, guid: bc7c863b499fa421599502995d58d360, type: 3}
 --- !u!114 &4016002495862216145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +234,10 @@ MonoBehaviour:
   spawnTime: 20
   warnDur: 5
   aliveDur: 20
+  fireSpawn: {fileID: 8300000, guid: d1c7f6d01e53a4536821836bafc9f18e, type: 3}
+  fireFall: {fileID: 8300000, guid: 4edcb5ca397d9435dad8d92de9bf9dfb, type: 3}
+  fireHit: {fileID: 8300000, guid: 8cc49c987a6b145aeaf4644f9ca9d338, type: 3}
+  fireBurn: {fileID: 8300000, guid: 5390702a9d9db45ed993fc0288a19fdc, type: 3}
 --- !u!114 &4615444309405672591
 MonoBehaviour:
   m_ObjectHideFlags: 0

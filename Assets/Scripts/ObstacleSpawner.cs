@@ -10,6 +10,7 @@ public class ObstacleSpawner : MonoBehaviour
     public float spawnTime = 20.0f;
     public float warnDur = 5.0f;
     public float aliveDur = 20.0f;
+    public AudioClip fireSpawn, fireFall, fireHit, fireBurn;
     TrackPlacer trackPlacer;
     MapGrid mapGrid;
     bool isSpawning;
@@ -63,15 +64,18 @@ public class ObstacleSpawner : MonoBehaviour
 
     private IEnumerator SpawnSingle(Coords c) {
         mapGrid.tiles[c.x, c.y].isTargetted = true;
+        GameManager.instance.PlayAudio(fireSpawn);
         // spawn target
         GameObject curTarget = Instantiate(targetObj, mapGrid.WorldPos(c), Quaternion.identity);
         yield return new WaitForSeconds(warnDur);
         Destroy(curTarget);
 
         // spawn obstacle & destroy tracks
+        GameManager.instance.PlayAudio(fireHit);
         trackPlacer.PlaceTrack(c, TrackType.OBSTACLE);
-        // GameObject curObst = Instantiate(obstObj, mapGrid.WorldPos(c), Quaternion.identity);
-        yield return new WaitForSeconds(aliveDur);
+        yield return new WaitForSeconds(0.5f);
+        GameManager.instance.PlayAudio(fireBurn);
+        yield return new WaitForSeconds(aliveDur - 0.5f);
         trackPlacer.PlaceTrack(c, TrackType.NONE);
         mapGrid.SetGroundTile(c, true);
         mapGrid.tiles[c.x, c.y].isTargetted = false;

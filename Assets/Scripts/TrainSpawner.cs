@@ -77,8 +77,15 @@ public class TrainSpawner : MonoBehaviour
         stations.Add(new TrainStation(start, end, startDir, endDir, spawnCD, curLineCnt));
         TrackPlacer.instance.PlaceTrack(start, (TrackType)((int)TrackType.STATIONT + startDir));
         MapGrid.instance.GetTile(start).stationNum = curLineCnt;
+        MapGrid.instance.GetTile(start.MoveDir(startDir)).isTargetted = true; // prevent targetting by fireballs
         TrackPlacer.instance.PlaceTrack(end, (TrackType)((int)TrackType.STATIONT + endDir));
         MapGrid.instance.GetTile(end).stationNum = curLineCnt;
+        MapGrid.instance.GetTile(end.MoveDir(endDir)).isTargetted = true;
         curLineCnt++;
+    }
+
+    public void SpawnStation()
+    {
+
     }
 }

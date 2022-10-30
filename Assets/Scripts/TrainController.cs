@@ -9,6 +9,8 @@ public class TrainController : MonoBehaviour
     int nextDir;
     public TrainStation parentStation;
     public Sprite[] trainSprite;
+    public Sprite[] dieAnim;
+    const float dieAnimFrameTime = 1.5f;
 
     public Coords Pos { get => _pos;
         set
@@ -119,6 +121,7 @@ public class TrainController : MonoBehaviour
                 // reached station from correct direction
                 if (parentStation.lineNum != MapGrid.instance.GetTile(nextPos).stationNum) {
                     // wrong station - may want special handling for animation purposes
+                    StartCoroutine(DieAnim());
                     Destroy(gameObject);
                     GameManager.instance.HandleCrash();
                     parentStation.spawned = false;
@@ -136,7 +139,7 @@ public class TrainController : MonoBehaviour
 
         if (Dir == -1)
         {
-            Destroy(gameObject);
+            StartCoroutine(DieAnim());
             GameManager.instance.HandleCrash();
             parentStation.spawned = false;
         }
@@ -144,5 +147,14 @@ public class TrainController : MonoBehaviour
         {
             Pos = nextPos;
         }
+    }
+
+    IEnumerator DieAnim() {
+        enabled = false;
+        foreach (Sprite sp in dieAnim) {
+            GetComponent<SpriteRenderer>().sprite = sp;
+            yield return new WaitForSeconds(dieAnimFrameTime);
+        }
+        Destroy(gameObject);
     }
 }

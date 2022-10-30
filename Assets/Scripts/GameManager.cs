@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         curStage = 1;
 
         obstacleSpawner.SetSpawns(false);
-        trainSpawner.AddStation(new Coords(0, 4), new Coords(9, 4), Coords.RIGHT, Coords.LEFT);
+        trainSpawner.AddStation(new Coords(0, 4), new Coords(14, 4), Coords.RIGHT, Coords.LEFT);
     }
 
     // Update is called once per frame
@@ -62,7 +62,12 @@ public class GameManager : MonoBehaviour
         crashes++;
         Debug.Log(string.Format("Crashed! Total crashes: {0}", crashes));
         if (crashes >= 3) {
-            // TODO: sadness :(
+            // sadness :( stop spawning trains, and stop moving trains
+            trainSpawner.enabled = false;
+            foreach (TrainController train in FindObjectsOfType<TrainController>()) {
+                train.enabled = false;
+            }
+            Debug.Log("GAME OVER");
         }
     }
     public void IncReputation() {
@@ -79,6 +84,7 @@ public class GameManager : MonoBehaviour
             foreach (TrainController train in FindObjectsOfType<TrainController>()) {
                 train.enabled = false;
             }
+            Debug.Log("WIN");
         }
     }
     public void TrainArrived() {

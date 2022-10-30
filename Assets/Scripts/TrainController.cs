@@ -27,7 +27,8 @@ public class TrainController : MonoBehaviour
     float moveCD;
 
     [SerializeField]
-    readonly float timeBetweenMove = 1.2f;
+    readonly float timeBetweenMove = 1.5f;
+    readonly float timeAtStation = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -123,6 +124,7 @@ public class TrainController : MonoBehaviour
                     if (!parentStation.scored) GameManager.instance.IncReputation();
                     parentStation.scored = true;
                     GameManager.instance.TrainArrived();
+                    moveCD = timeAtStation;
                 }
             }
         }

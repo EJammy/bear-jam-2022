@@ -1,0 +1,10 @@
+.textstyle {
+    color: rgba(255, 255, 255, 255);
+    -unity-font: url('project://database/Assets/UI/1980v202005.ttf?fileID=12800000&guid=786c7d30d71b440acb8ad2252b652a6f&type=3#1980v202005');
+}
+
+.track-element {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    -unity-font: url('project://database/Assets/UI/1980v202005.ttf?fileID=12800000&guid=786c7d30d71b440acb8ad2252b652a6f&type=3#1980v202005');
+}

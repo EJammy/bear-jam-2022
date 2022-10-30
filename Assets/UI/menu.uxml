@@ -1,67 +1,69 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/ui-styles.uss?fileID=7433441132597879392&amp;guid=eeebf549a79d841d9be02835dd6e2631&amp;type=3#ui-styles" />
     <ui:VisualElement name="Root" style="width: 100%; height: 100%; max-width: 100%; max-height: 100%; min-width: 100%; min-height: 100%;">
         <ui:VisualElement name="LeftPanel" style="width: 30%; height: 100%; flex-wrap: nowrap; flex-direction: column; align-items: center; background-color: rgb(0, 0, 0);">
-            <ui:VisualElement name="Controls" style="flex-direction: row; align-items: center; padding-top: 0; margin-bottom: 4px; margin-top: 12px;">
+            <ui:VisualElement name="Controls" style="flex-direction: row; align-items: center; padding-top: 0; margin-bottom: 4px; margin-top: 36px;">
                 <ui:VisualElement name="Control-Img" style="background-image: url(&apos;project://database/Assets/Sprites/kenney_tilemap_white_packed_keyboardonly.png?fileID=1554895213&amp;guid=7224e35b97ebf40d384c67b5b3de9d8b&amp;type=3#kenney_tilemap_white_packed_keyboardonly_273&apos;); width: 32px; height: 32px;" />
-                <ui:Label text=": Select Tile" display-tooltip-when-elided="true" name="Control-ClickTile" />
+                <ui:Label text=": Select Tile" display-tooltip-when-elided="true" name="Control-ClickTile" class="textstyle" style="-unity-font-style: bold; color: rgb(255, 255, 255);" />
             </ui:VisualElement>
-            <ui:VisualElement name="TileSelectorArea" style="height: 209px; width: 100%; flex-wrap: wrap; align-items: center; margin-top: 4px; margin-bottom: 4px;">
+            <ui:VisualElement name="TileSelectorArea" style="height: 324px; width: 100%; flex-wrap: wrap; align-items: center; margin-top: 4px; margin-bottom: 4px; justify-content: flex-start; padding-top: 16px;">
                 <ui:VisualElement name="column1" style="width: 50%; height: 100%; align-items: flex-end;">
-                    <ui:VisualElement style="align-items: center; flex-wrap: nowrap;">
+                    <ui:VisualElement class="track-element" style="align-items: center; flex-wrap: nowrap;">
                         <ui:GroupBox name="Tile1" style="flex-direction: row; margin-top: 1px; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-left: 5px; margin-right: 5px; margin-bottom: 3px;">
                             <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/kenney_tilemap_white_packed_keyboardonly.png?fileID=608970279&amp;guid=7224e35b97ebf40d384c67b5b3de9d8b&amp;type=3#kenney_tilemap_white_packed_keyboardonly_17&apos;); width: 32px; height: 32px;" />
                             <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/Tiles/vertical.png?fileID=21300000&amp;guid=0eac1be55dd1d4020aa44f385cbf890f&amp;type=3#vertical&apos;); width: 32px; height: 32px;" />
                         </ui:GroupBox>
-                        <ui:Label text="0/9" display-tooltip-when-elided="true" name="Tile1-Counter" />
+                        <ui:Label text="0/9" display-tooltip-when-elided="true" name="Tile1-Counter" class="textstyle" style="-unity-font-style: normal; -unity-font: none; padding-top: 0; padding-bottom: 0;" />
                     </ui:VisualElement>
-                    <ui:VisualElement style="align-items: center; flex-wrap: nowrap;">
+                    <ui:VisualElement class="track-element" style="align-items: center; flex-wrap: nowrap;">
                         <ui:GroupBox name="Tile3" style="flex-direction: row; margin-top: 1px; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-left: 5px; margin-right: 5px; margin-bottom: 3px;">
                             <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/kenney_tilemap_white_packed_keyboardonly.png?fileID=-1701006481&amp;guid=7224e35b97ebf40d384c67b5b3de9d8b&amp;type=3#kenney_tilemap_white_packed_keyboardonly_19&apos;); width: 32px; height: 32px;" />
                             <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/Tiles/right%20to%20down0000.png?fileID=21300000&amp;guid=9095ef449ad0848a793f5de0ebe73e5d&amp;type=3#right to down0000&apos;); width: 32px; height: 32px;" />
                         </ui:GroupBox>
-                        <ui:Label text="0/9" display-tooltip-when-elided="true" name="Tile3-Counter" />
+                        <ui:Label text="0/9" display-tooltip-when-elided="true" name="Tile3-Counter" class="textstyle" />
                     </ui:VisualElement>
-                    <ui:VisualElement style="align-items: center; flex-wrap: nowrap;">
-                        <ui:GroupBox name="Tile3" style="flex-direction: row; margin-top: 1px; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-left: 5px; margin-right: 5px; margin-bottom: 3px;">
+                    <ui:VisualElement class="track-element" style="align-items: center; flex-wrap: nowrap;">
+                        <ui:GroupBox name="Tile5" style="flex-direction: row; margin-top: 1px; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-left: 5px; margin-right: 5px; margin-bottom: 3px;">
                             <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/kenney_tilemap_white_packed_keyboardonly.png?fileID=-313124320&amp;guid=7224e35b97ebf40d384c67b5b3de9d8b&amp;type=3#kenney_tilemap_white_packed_keyboardonly_21&apos;); width: 32px; height: 32px;" />
                             <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/Tiles/right%20to%20up0000.png?fileID=21300000&amp;guid=e64d78ce110334af693bc86b93df6a64&amp;type=3#right to up0000&apos;); width: 32px; height: 32px;" />
                         </ui:GroupBox>
-                        <ui:Label text="0/9" display-tooltip-when-elided="true" name="Tile3-Counter" />
+                        <ui:Label text="0/9" display-tooltip-when-elided="true" name="Tile5-Counter" class="textstyle" />
                     </ui:VisualElement>
-                    <ui:VisualElement style="align-items: center; flex-wrap: nowrap;">
-                        <ui:GroupBox name="Tile3" style="flex-direction: row; margin-top: 1px; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-left: 5px; margin-right: 5px; margin-bottom: 3px;">
+                    <ui:VisualElement class="track-element" style="align-items: center; flex-wrap: nowrap;">
+                        <ui:GroupBox name="Tile7" style="flex-direction: row; margin-top: 1px; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-left: 5px; margin-right: 5px; margin-bottom: 3px;">
                             <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/kenney_tilemap_white_packed_keyboardonly.png?fileID=-1166136795&amp;guid=7224e35b97ebf40d384c67b5b3de9d8b&amp;type=3#kenney_tilemap_white_packed_keyboardonly_23&apos;); width: 32px; height: 32px;" />
                             <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/Tiles/right%20to%20up0000.png?fileID=21300000&amp;guid=e64d78ce110334af693bc86b93df6a64&amp;type=3#right to up0000&apos;); width: 32px; height: 32px;" />
                         </ui:GroupBox>
-                        <ui:Label text="0/9" display-tooltip-when-elided="true" name="Tile3-Counter" />
+                        <ui:Label text="0/9" display-tooltip-when-elided="true" name="Tile7-Counter" class="textstyle" />
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="column2" style="width: 50%; height: 100%; align-items: flex-start;">
-                    <ui:VisualElement style="align-items: center; flex-wrap: nowrap;">
-                        <ui:GroupBox name="Tile4" style="flex-direction: row; margin-top: 1px; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-left: 5px; margin-right: 5px; margin-bottom: 3px;">
-                            <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/kenney_tilemap_white_packed_keyboardonly.png?fileID=953321149&amp;guid=7224e35b97ebf40d384c67b5b3de9d8b&amp;type=3#kenney_tilemap_white_packed_keyboardonly_20&apos;); width: 32px; height: 32px;" />
-                            <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/Tiles/left%20to%20down0000.png?fileID=21300000&amp;guid=f6a8161c094e34017b2d45a8433c86a9&amp;type=3#left to down0000&apos;); width: 32px; height: 32px;" />
-                        </ui:GroupBox>
-                        <ui:Label text="0/9" display-tooltip-when-elided="true" name="Tile4-Counter" />
-                    </ui:VisualElement>
-                    <ui:VisualElement style="align-items: center; flex-wrap: nowrap;">
+                <ui:VisualElement name="column2" style="width: 50%; height: 100%; align-items: flex-start; flex-wrap: nowrap; justify-content: flex-start;">
+                    <ui:VisualElement class="track-element" style="align-items: center; flex-wrap: nowrap;">
                         <ui:GroupBox name="Tile2" style="flex-direction: row; margin-top: 1px; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-left: 5px; margin-right: 5px; margin-bottom: 3px;">
                             <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/kenney_tilemap_white_packed_keyboardonly.png?fileID=613675844&amp;guid=7224e35b97ebf40d384c67b5b3de9d8b&amp;type=3#kenney_tilemap_white_packed_keyboardonly_18&apos;); width: 32px; height: 32px;" />
                             <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/Tiles/horizontal0000.png?fileID=21300000&amp;guid=aee9254e81cca41818d87790695a47e7&amp;type=3#horizontal0000&apos;); width: 32px; height: 32px;" />
                         </ui:GroupBox>
-                        <ui:Label text="0/9" display-tooltip-when-elided="true" name="Tile2-Counter" />
+                        <ui:Label text="0/9" display-tooltip-when-elided="true" name="Tile2-Counter" class="textstyle" />
                     </ui:VisualElement>
-                    <ui:VisualElement style="align-items: center; flex-wrap: nowrap;">
+                    <ui:VisualElement class="track-element" style="align-items: center; flex-wrap: nowrap;">
+                        <ui:GroupBox name="Tile4" style="flex-direction: row; margin-top: 1px; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-left: 5px; margin-right: 5px; margin-bottom: 3px;">
+                            <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/kenney_tilemap_white_packed_keyboardonly.png?fileID=953321149&amp;guid=7224e35b97ebf40d384c67b5b3de9d8b&amp;type=3#kenney_tilemap_white_packed_keyboardonly_20&apos;); width: 32px; height: 32px;" />
+                            <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/Tiles/left%20to%20down0000.png?fileID=21300000&amp;guid=f6a8161c094e34017b2d45a8433c86a9&amp;type=3#left to down0000&apos;); width: 32px; height: 32px;" />
+                        </ui:GroupBox>
+                        <ui:Label text="0/9" display-tooltip-when-elided="true" name="Tile4-Counter" class="textstyle" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="track-element" style="align-items: center; flex-wrap: nowrap;">
                         <ui:GroupBox name="Tile4" style="flex-direction: row; margin-top: 1px; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-left: 5px; margin-right: 5px; margin-bottom: 3px;">
                             <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/kenney_tilemap_white_packed_keyboardonly.png?fileID=-2053629714&amp;guid=7224e35b97ebf40d384c67b5b3de9d8b&amp;type=3#kenney_tilemap_white_packed_keyboardonly_22&apos;); width: 32px; height: 32px;" />
                             <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Sprites/Tiles/left%20to%20up0000.png?fileID=21300000&amp;guid=8156dcc79ae7a44c0966d855610f0ce3&amp;type=3#left to up0000&apos;); width: 32px; height: 32px;" />
                         </ui:GroupBox>
-                        <ui:Label text="0/9" display-tooltip-when-elided="true" name="Tile4-Counter" />
+                        <ui:Label text="0/9" display-tooltip-when-elided="true" name="Tile4-Counter" class="textstyle" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
+            <ui:Label text="GOAL: Get the trains to their destinations!" display-tooltip-when-elided="true" class="textstyle" style="margin-bottom: 6px;" />
             <ui:VisualElement style="width: 100%; padding-left: 16px; padding-right: 16px; flex-direction: row; align-items: center; margin-top: 4px;">
-                <ui:Label text="LINES:" display-tooltip-when-elided="true" name="Lines-Text" style="padding-right: 8px;" />
+                <ui:Label text="LINES:" display-tooltip-when-elided="true" name="Lines-Text" class="textstyle" style="padding-right: 8px;" />
                 <ui:VisualElement name="star1" style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=-2140602402&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_108&apos;); width: 32px; height: 32px;" />
                 <ui:VisualElement name="star2" style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=-2140602402&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_108&apos;); width: 32px; height: 32px;" />
                 <ui:VisualElement name="star3" style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=-2140602402&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_108&apos;); width: 32px; height: 32px;" />
@@ -69,13 +71,13 @@
                 <ui:VisualElement name="star5" style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=-2140602402&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_108&apos;); width: 32px; height: 32px;" />
             </ui:VisualElement>
             <ui:VisualElement style="width: 100%; padding-left: 16px; padding-right: 16px; flex-direction: row; align-items: center; margin-top: 4px;">
-                <ui:Label text="STRIKES:" display-tooltip-when-elided="true" name="Strikes-Text" style="padding-right: 8px;" />
+                <ui:Label text="STRIKES:" display-tooltip-when-elided="true" name="Strikes-Text" class="textstyle" style="padding-right: 8px;" />
                 <ui:VisualElement name="strike1" style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=-1201303725&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_96&apos;); width: 32px; height: 32px;" />
                 <ui:VisualElement name="strike2" style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=-1201303725&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_96&apos;); width: 32px; height: 32px;" />
                 <ui:VisualElement name="strike3" style="background-image: url(&apos;project://database/Assets/Sprites/reputation%20strike%20icons.png?fileID=-1201303725&amp;guid=4b09c0b581f094784ae924c78b3edbac&amp;type=3#placeholders_96&apos;); width: 32px; height: 32px;" />
             </ui:VisualElement>
-            <ui:VisualElement name="kaijuzone" style="width: 100%; margin-top: 12px; height: auto; bottom: auto;">
-                <ui:VisualElement name="kaiju-bg" style="background-color: rgb(47, 89, 159); width: 100%; height: 181px; align-items: flex-start; justify-content: flex-end;">
+            <ui:VisualElement name="kaijuzone" style="width: 100%; margin-top: 12px; height: 218px; bottom: auto; overflow: hidden;">
+                <ui:VisualElement name="kaiju-bg" style="background-color: rgb(47, 89, 159); width: 100%; height: 196px; align-items: flex-start; justify-content: flex-end; margin-bottom: -12px;">
                     <ui:VisualElement name="kaiju-sprite" style="background-image: url(&apos;project://database/Assets/Sprites/kaiju-Sheet.png?fileID=912257943&amp;guid=e788098df7d524cf2a4c5f901445e105&amp;type=3#kaiju-Sheet_0&apos;); width: 270px; height: 246px; bottom: auto; margin-bottom: -44px; margin-top: -35px; padding-right: 0; margin-left: -45px;" />
                 </ui:VisualElement>
             </ui:VisualElement>

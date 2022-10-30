@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    AudioClip crashAudio;
+    [SerializeField]
+    AudioClip music;
+
     // Singleton
     static public GameManager instance { get; private set; }
 
@@ -17,6 +22,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayAudio(music);
+
         instance = this;
 
         Grid grid = FindObjectOfType<Grid>();
@@ -40,17 +47,17 @@ public class GameManager : MonoBehaviour
                 trackPlacer.PlaceTrack(new Coords(i, j), (TrackType)((i + j) % 9));
             }
         }
-        trackPlacer.PlaceTrack(new Coords(1, 0), TrackType.HORI);
-        trackPlacer.PlaceTrack(new Coords(2, 0), TrackType.CORNERTL);
-        trackPlacer.PlaceTrack(new Coords(2, 1), TrackType.VERTI);
-        trackPlacer.PlaceTrack(new Coords(2, 2), TrackType.CORNERBR);
-        trackPlacer.PlaceTrack(new Coords(3, 2), TrackType.HORI);
-        trackPlacer.PlaceTrack(new Coords(4, 2), TrackType.CROSS);
-        trackPlacer.PlaceTrack(new Coords(5, 2), TrackType.CORNERTL);
-        trackPlacer.PlaceTrack(new Coords(5, 3), TrackType.VERTI);
-        trackPlacer.PlaceTrack(new Coords(5, 4), TrackType.VERTI);
-        trackPlacer.PlaceTrack(new Coords(5, 5), TrackType.CORNERBL);
-        trackPlacer.PlaceTrack(new Coords(4, 5), TrackType.CORNERBR);
+        // trackPlacer.PlaceTrack(new Coords(1, 0), TrackType.HORI);
+        // trackPlacer.PlaceTrack(new Coords(2, 0), TrackType.CORNERTL);
+        // trackPlacer.PlaceTrack(new Coords(2, 1), TrackType.VERTI);
+        // trackPlacer.PlaceTrack(new Coords(2, 2), TrackType.CORNERBR);
+        // trackPlacer.PlaceTrack(new Coords(3, 2), TrackType.HORI);
+        // trackPlacer.PlaceTrack(new Coords(4, 2), TrackType.CROSS);
+        // trackPlacer.PlaceTrack(new Coords(5, 2), TrackType.CORNERTL);
+        // trackPlacer.PlaceTrack(new Coords(5, 3), TrackType.VERTI);
+        // trackPlacer.PlaceTrack(new Coords(5, 4), TrackType.VERTI);
+        // trackPlacer.PlaceTrack(new Coords(5, 5), TrackType.CORNERBL);
+        // trackPlacer.PlaceTrack(new Coords(4, 5), TrackType.CORNERBR);
 
         obstacleSpawner.SetSpawns(true);
         trainSpawner.AddStation(new Coords(0, 0), new Coords(4, 4), Coords.RIGHT, Coords.UP);
@@ -63,6 +70,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void HandleCrash() {
+        PlayAudio(crashAudio);
+
         crashes++;
         Debug.Log(string.Format("Crashed! Total crashes: {0}", crashes));
         if (crashes >= 3) {
@@ -72,5 +81,11 @@ public class GameManager : MonoBehaviour
     public void IncReputation() {
         reputation++;
         Debug.Log(string.Format("Rep increased! Total rep: {0}", reputation));
+    }
+
+    // TODO: Manage music
+    public void PlayAudio(AudioClip clip)
+    {
+        GetComponent<AudioSource>().PlayOneShot(clip);
     }
 }

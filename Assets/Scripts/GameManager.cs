@@ -21,7 +21,9 @@ public class GameManager : MonoBehaviour
     int reputation, crashes;
     int curTrainArrivals, curStage;
     int[] stageTrainGoals = {0, 2, 4, 10, 15};
-    int winRep = 5;
+    int winRep = 5, loseCrashes = 3;
+    VisualElement[] starsUI, strikesUI;
+    public Sprite emptyStar, filledStar, emptyStrike, filledStrike;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,14 @@ public class GameManager : MonoBehaviour
         }
 
         UI = FindObjectOfType<UIDocument>().GetComponent<UIDocument>().rootVisualElement;
+        starsUI = new VisualElement[winRep];
+        for (int i = 0; i < winRep; i++) {
+            starsUI[i] = UI.Q<VisualElement>("star" + (i+1).ToString());
+        }
+        strikesUI = new VisualElement[loseCrashes];
+        for (int i = 0; i < loseCrashes; i++) {
+            strikesUI[i] = UI.Q<VisualElement>("strike" + (i+1).ToString());
+        }
 
         mapGrid.Initialize(mapHeight, mapWidth);
         trackPlacer.Initialize();
@@ -64,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     public void HandleCrash() {
         PlayAudio(crashAudio);
-
+        strikesUI[crashes].style.backgroundImage = new StyleBackground(filledStrike);
         crashes++;
         Debug.Log(string.Format("Crashed! Total crashes: {0}", crashes));
         if (crashes >= 3) {
@@ -77,6 +87,7 @@ public class GameManager : MonoBehaviour
         }
     }
     public void IncReputation() {
+        starsUI[reputation].style.backgroundImage = new StyleBackground(filledStar);
         reputation++;
         Debug.Log(string.Format("Rep increased! Total rep: {0}", reputation));
         if (reputation == 1) {

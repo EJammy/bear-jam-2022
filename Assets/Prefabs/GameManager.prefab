@@ -53,6 +53,7 @@ MonoBehaviour:
   atkMusic: {fileID: 8300000, guid: 6640f3dc50cf3468f9b465b183edfab3, type: 3}
   victorySFX: {fileID: 8300000, guid: 59bc72c5b6718452c9d1515f0760d6b2, type: 3}
   loseSFX: {fileID: 8300000, guid: be8b893c24b814b539b6748179484bcc, type: 3}
+  btnSFX: {fileID: 8300000, guid: eb74ae84f855a40b7ace48a18e4170cb, type: 3}
   gameHUD: {fileID: 0}
   winUI: {fileID: 0}
   loseUI: {fileID: 0}

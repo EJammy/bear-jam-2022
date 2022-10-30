@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     AudioClip repAudio;
     [SerializeField]
-    AudioClip titleMusic, introMusic, atkMusic, victorySFX, loseSFX;
+    AudioClip titleMusic, introMusic, atkMusic, victorySFX, loseSFX, btnSFX;
 
     // Do we need this when we have crash audio?
     // [SerializeField]
@@ -160,12 +160,14 @@ public class GameManager : MonoBehaviour
     }
 
     private void RestartGame() {
+        PlaySFX(btnSFX);
         SceneManager.LoadScene("GameScene");
     }
 
     private void StartGame() {
         titleUI.rootVisualElement.Q<VisualElement>("root").visible = false;
 
+        PlaySFX(btnSFX);
         trackPlacer.enabled = true;
         mapGrid.Initialize(mapHeight, mapWidth);
         trackPlacer.Initialize();
@@ -186,6 +188,7 @@ public class GameManager : MonoBehaviour
     private void ShowCredits() {
         titleUI.rootVisualElement.Q<VisualElement>("root").visible = false;
         creditsUI.rootVisualElement.Q<VisualElement>("root").visible = true;
+        PlaySFX(btnSFX);
     }
 
     private void BackToMain() {
@@ -193,5 +196,6 @@ public class GameManager : MonoBehaviour
         creditsUI.rootVisualElement.Q<VisualElement>("root").visible = false;
         winUI.rootVisualElement.Q<VisualElement>("root").visible = false;
         loseUI.rootVisualElement.Q<VisualElement>("root").visible = false;
+        PlaySFX(btnSFX);
     }
 }

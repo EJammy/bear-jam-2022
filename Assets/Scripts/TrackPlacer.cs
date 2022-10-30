@@ -11,16 +11,23 @@ public class TrackPlacer : MonoBehaviour
     public Tile[] tileDict;
     public AudioClip invalid, placeTile, replaceTile;
     MapGrid grid;
-    bool _init = false;
+    GroupBox[] tileBoxes;
 
     // Start is called before the first frame update
     void Start()
     {
     }
     public void Initialize() {
-        _init = true;
         instance = this;
         grid = GetComponent<MapGrid>();
+        tileBoxes = new GroupBox[7];
+        for(int i = 0; i < 7; i++) {
+            tileBoxes[i] = GameManager.instance.UI.Q<GroupBox>("Tile" + (i + 1).ToString());
+            tileBoxes[i].style.borderBottomWidth = new StyleFloat(2.0f);
+            tileBoxes[i].style.borderTopWidth = new StyleFloat(2.0f);
+            tileBoxes[i].style.borderLeftWidth = new StyleFloat(2.0f);
+            tileBoxes[i].style.borderRightWidth = new StyleFloat(2.0f);
+        }
         GameManager.instance.UI.Q<GroupBox>("Tile1").RegisterCallback<ClickEvent>(_ => {selected = selections[0];});
         GameManager.instance.UI.Q<GroupBox>("Tile2").RegisterCallback<ClickEvent>(_ => {selected = selections[1];});
         GameManager.instance.UI.Q<GroupBox>("Tile3").RegisterCallback<ClickEvent>(_ => {selected = selections[2];});
@@ -70,6 +77,20 @@ public class TrackPlacer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
         {
             selected = TrackType.NONE;
+        }
+
+        for (int i = 0; i < 7; i++) {
+            if (selections[i] == selected) {
+                tileBoxes[i].style.borderBottomColor = new StyleColor(Color.red);
+                tileBoxes[i].style.borderTopColor = new StyleColor(Color.red);
+                tileBoxes[i].style.borderLeftColor = new StyleColor(Color.red);
+                tileBoxes[i].style.borderRightColor = new StyleColor(Color.red);
+            } else {
+                tileBoxes[i].style.borderBottomColor = new StyleColor(Color.clear);
+                tileBoxes[i].style.borderTopColor = new StyleColor(Color.clear);
+                tileBoxes[i].style.borderLeftColor = new StyleColor(Color.clear);
+                tileBoxes[i].style.borderRightColor = new StyleColor(Color.clear);
+            }
         }
 
         // Might need to check if lastSelectedCell is set in the future

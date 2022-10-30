@@ -9,10 +9,10 @@ public class UIManager : MonoBehaviour
         var VE_Root = GetComponent<UIDocument>().rootVisualElement;
 
         //How to get elements:
-        tile1 = VE_Root.Q<GroupBox>("Tile1"); //Name in quotes is found in the UI Builder
+        // tile1 = VE_Root.Q<GroupBox>("Tile1"); //Name in quotes is found in the UI Builder
 
         //Different events:
-        somebutton.RegisterCallback<ClickEvent>(ev => FunctionCall());
+        // somebutton.RegisterCallback<ClickEvent>(ev => FunctionCall());
 
     }
 }

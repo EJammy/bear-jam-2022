@@ -40,6 +40,18 @@ public class GameManager : MonoBehaviour
                 trackPlacer.PlaceTrack(new Coords(i, j), (TrackType)((i + j) % 9));
             }
         }
+        trackPlacer.PlaceTrack(new Coords(1, 0), TrackType.HORI);
+        trackPlacer.PlaceTrack(new Coords(2, 0), TrackType.CORNERTL);
+        trackPlacer.PlaceTrack(new Coords(2, 1), TrackType.VERTI);
+        trackPlacer.PlaceTrack(new Coords(2, 2), TrackType.CORNERBR);
+        trackPlacer.PlaceTrack(new Coords(3, 2), TrackType.HORI);
+        trackPlacer.PlaceTrack(new Coords(4, 2), TrackType.CROSS);
+        trackPlacer.PlaceTrack(new Coords(5, 2), TrackType.CORNERTL);
+        trackPlacer.PlaceTrack(new Coords(5, 3), TrackType.VERTI);
+        trackPlacer.PlaceTrack(new Coords(5, 4), TrackType.VERTI);
+        trackPlacer.PlaceTrack(new Coords(5, 5), TrackType.CORNERBL);
+        trackPlacer.PlaceTrack(new Coords(4, 5), TrackType.CORNERBR);
+
         obstacleSpawner.SetSpawns(true);
         trainSpawner.AddStation(new Coords(0, 0), new Coords(4, 4), Coords.RIGHT, Coords.UP);
     }
@@ -58,7 +70,7 @@ public class GameManager : MonoBehaviour
         }
     }
     public void IncReputation() {
-        Debug.Log(string.Format("Rep increased! Total rep: {0}", reputation));
         reputation++;
+        Debug.Log(string.Format("Rep increased! Total rep: {0}", reputation));
     }
 }

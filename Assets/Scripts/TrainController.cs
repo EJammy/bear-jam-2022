@@ -119,7 +119,7 @@ public class TrainController : MonoBehaviour
                     return;
                 } else {
                     // correct station! go back and score reputation if first time
-                    nextDir = Coords.OppDir(prevDir); 
+                    nextDir = prevDir; 
                     if (!parentStation.scored) GameManager.instance.IncReputation();
                     parentStation.scored = true;
                 }

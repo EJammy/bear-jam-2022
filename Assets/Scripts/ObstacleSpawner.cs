@@ -82,7 +82,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     private IEnumerator SpawnSingle(Coords c) {
         mapGrid.tiles[c.x, c.y].isTargetted = true;
-        GameManager.instance.PlaySFX(fireSpawn);
+        GameManager.instance.PlaySFX(fireSpawn, 0.5f);
         // spawn target
         GameObject curTarget = Instantiate(targetObj, mapGrid.WorldPos(c), Quaternion.identity);
 
@@ -99,10 +99,10 @@ public class ObstacleSpawner : MonoBehaviour
         Destroy(fallingObj);
 
         // spawn obstacle & destroy tracks
-        GameManager.instance.PlaySFX(fireHit);
+        GameManager.instance.PlaySFX(fireHit, 0.5f);
         trackPlacer.PlaceTrack(c, TrackType.OBSTACLE);
         yield return new WaitForSeconds(0.5f);
-        GameManager.instance.PlaySFX(fireBurn);
+        GameManager.instance.PlaySFX(fireBurn, 0.5f);
         yield return new WaitForSeconds(aliveDur - 0.5f);
         trackPlacer.PlaceTrack(c, TrackType.NONE);
         mapGrid.SetGroundTile(c, true);

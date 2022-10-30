@@ -122,6 +122,7 @@ public class TrainController : MonoBehaviour
                     nextDir = prevDir; 
                     if (!parentStation.scored) GameManager.instance.IncReputation();
                     parentStation.scored = true;
+                    GameManager.instance.TrainArrived();
                 }
             }
         }

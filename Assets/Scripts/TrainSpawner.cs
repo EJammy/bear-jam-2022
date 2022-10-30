@@ -86,6 +86,86 @@ public class TrainSpawner : MonoBehaviour
 
     public void SpawnStation()
     {
-
+        bool ok = true;
+        // spawn start
+        int sx, sy, sside;
+        Coords sc;
+        do {
+            ok = true;
+            sside = UnityEngine.Random.Range(0, 4);
+            int edgeDist = UnityEngine.Random.Range(0, 3);
+            switch (sside) {
+                case Coords.UP:
+                    sy = MapGrid.instance.height - 1 - edgeDist;
+                    sx = UnityEngine.Random.Range(0, MapGrid.instance.width);
+                    break;
+                case Coords.DOWN:
+                    sy = edgeDist;
+                    sx = UnityEngine.Random.Range(0, MapGrid.instance.width);
+                    break;
+                case Coords.LEFT:
+                    sx = edgeDist;
+                    sy = UnityEngine.Random.Range(0, MapGrid.instance.height);
+                    break;
+                case Coords.RIGHT:
+                default:
+                    sx = MapGrid.instance.width - 1 - edgeDist;
+                    sy = UnityEngine.Random.Range(0, MapGrid.instance.height);
+                    break;
+            }
+            sc = new Coords(sx, sy);
+            if (MapGrid.instance.GetTile(sc).isTargetted || MapGrid.instance.GetTile(sc).isBlocked) ok = false;
+            List<int> sDirs = new();
+            for (int i = 0; i < 4; i++) {
+                if (MapGrid.instance.InBound(sc.MoveDir(i)) && 
+                    !MapGrid.instance.GetTile(sc.MoveDir(i)).isTargetted &&
+                    !MapGrid.instance.GetTile(sc.MoveDir(i)).isBlocked) {
+                        sDirs.Add(i);
+                    }
+            }
+            if (sDirs.Count == 0) ok = false;
+            else sside = sDirs[UnityEngine.Random.Range(0, sDirs.Count)];
+        } while (!ok);
+        MapGrid.instance.GetTile(sc).isBlocked = true;
+        // spawn end
+        int ex, ey, eside;
+        Coords ec;
+        do {
+            ok = true;
+            eside = Coords.OppDir(sside); // always spawn on opposite sides; change this later?
+            int edgeDist = UnityEngine.Random.Range(0, 3);
+            switch (eside) {
+                case Coords.UP:
+                    ey = MapGrid.instance.height - 1 - edgeDist;
+                    ex = UnityEngine.Random.Range(0, MapGrid.instance.width);
+                    break;
+                case Coords.DOWN:
+                    ey = edgeDist;
+                    ex = UnityEngine.Random.Range(0, MapGrid.instance.width);
+                    break;
+                case Coords.LEFT:
+                    ex = edgeDist;
+                    ey = UnityEngine.Random.Range(0, MapGrid.instance.height);
+                    break;
+                case Coords.RIGHT:
+                default:
+                    ex = MapGrid.instance.width - 1 - edgeDist;
+                    ey = UnityEngine.Random.Range(0, MapGrid.instance.height);
+                    break;
+            }
+            ec = new Coords(ex, ey);
+            if (MapGrid.instance.GetTile(ec).isTargetted || MapGrid.instance.GetTile(ec).isBlocked) ok = false;
+            List<int> eDirs = new();
+            for (int i = 0; i < 4; i++) {
+                if (MapGrid.instance.InBound(ec.MoveDir(i)) && 
+                    !MapGrid.instance.GetTile(ec.MoveDir(i)).isTargetted &&
+                    !MapGrid.instance.GetTile(ec.MoveDir(i)).isBlocked) {
+                        eDirs.Add(i);
+                    }
+            }
+            if (eDirs.Count == 0) ok = false;
+            else eside = eDirs[UnityEngine.Random.Range(0, eDirs.Count)];
+        } while (!ok);
+        AddStation(sc, ec, sside, eside);
     }
 }

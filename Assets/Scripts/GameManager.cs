@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     ObstacleSpawner obstacleSpawner;
     public int mapHeight, mapWidth;
     int reputation, crashes;
+    int curTrainArrivals, curStage;
+    int[] stageTrainGoals = {0, 2, 4, 10, 15};
+    int winRep = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -40,16 +43,11 @@ public class GameManager : MonoBehaviour
         obstacleSpawner.Initialize();
         reputation = 0;
         crashes = 0;
-        
-        // testing
-        // for (int i = 0; i < mapHeight; i++) {
-        //     for (int j = 0; j < mapWidth; j++) {
-        //         trackPlacer.PlaceTrack(new Coords(i, j), (TrackType)((i + j) % 9));
-        //     }
-        // }
+        curTrainArrivals = 0;
+        curStage = 1;
 
-        obstacleSpawner.SetSpawns(true);
-        trainSpawner.AddStation(new Coords(0, 0), new Coords(4, 4), Coords.RIGHT, Coords.UP);
+        obstacleSpawner.SetSpawns(false);
+        trainSpawner.AddStation(new Coords(0, 4), new Coords(9, 4), Coords.RIGHT, Coords.LEFT);
     }
 
     // Update is called once per frame
@@ -70,6 +68,28 @@ public class GameManager : MonoBehaviour
     public void IncReputation() {
         reputation++;
         Debug.Log(string.Format("Rep increased! Total rep: {0}", reputation));
+        if (reputation == 1) {
+            // start the attack!
+            obstacleSpawner.SetSpawns(true);
+        }
+        if (reputation >= winRep) {
+            // win! stop spawning obstacles, trains, and stop moving trains
+            obstacleSpawner.SetSpawns(false);
+            trainSpawner.enabled = false;
+            foreach (TrainController train in FindObjectsOfType<TrainController>()) {
+                train.enabled = false;
+            }
+        }
+    }
+    public void TrainArrived() {
+        if (curStage < winRep) {
+            curTrainArrivals++;
+            if (curTrainArrivals >= stageTrainGoals[curStage]) {
+                curTrainArrivals = 0;
+                curStage++;
+                trainSpawner.SpawnStation();
+            }
+        }
     }
 
     // TODO: Manage music

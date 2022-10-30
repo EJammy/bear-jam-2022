@@ -102,3 +102,5 @@ MonoBehaviour:
   - {fileID: -1157375704, guid: 0bdc8515e593c43ddb2ca2046e1dab66, type: 3}
   - {fileID: -657774853, guid: 0bdc8515e593c43ddb2ca2046e1dab66, type: 3}
   - {fileID: 635014104, guid: 0bdc8515e593c43ddb2ca2046e1dab66, type: 3}
+  dieAnim:
+  - {fileID: 1186852143, guid: 5c89730733207430db037755da9383dd, type: 3}

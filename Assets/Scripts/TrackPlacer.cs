@@ -9,9 +9,13 @@ public class TrackPlacer : MonoBehaviour
     // Singleton
     static public TrackPlacer instance { get; private set; }
     public Tile[] tileDict;
+    public Tile[] fireballAnim;
     public AudioClip invalid, placeTile, replaceTile;
     MapGrid grid;
     GroupBox[] tileBoxes;
+    int burntIndex = 0, burntDirection = 1;
+    const float burntFrameTime = 0.2f;
+    float curBurntTime = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +70,7 @@ public class TrackPlacer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // input stuff
         for (int i = 0; i < selections.Length; i++)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i))
@@ -124,6 +129,21 @@ public class TrackPlacer : MonoBehaviour
                 } else {
                     GameManager.instance.PlayAudio(grid.GetTile(selectedCell).trackType == TrackType.NONE ? placeTile : replaceTile);
                     PlaceTrack(selectedCell, selected);
+                }
+            }
+        }
+
+        // update fireball tiles
+        curBurntTime += Time.deltaTime;
+        if (curBurntTime >= burntFrameTime) {
+            curBurntTime = 0f;
+            burntIndex += burntDirection;
+            if (burntIndex == 0 || burntIndex == fireballAnim.Length - 1) burntDirection = -burntDirection;
+            for (int i = 0; i < grid.width; i++) {
+                for (int j = 0; j < grid.height; j++) {
+                    if (grid.tiles[i, j].trackType == TrackType.OBSTACLE) {
+                        grid.SetTile(new Coords(i, j), fireballAnim[burntIndex]);
+                    }
                 }
             }
         }

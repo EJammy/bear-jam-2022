@@ -248,7 +248,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717271140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 5, z: -10}
+  m_LocalPosition: {x: 5, y: 5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -343,6 +343,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid
       objectReference: {fileID: 0}
+    - target: {fileID: 4016002495862216149, guid: c4e2f31c4b81a5428bc33643cb45a1b3, type: 3}
+      propertyPath: burntAnim.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016002495862216149, guid: c4e2f31c4b81a5428bc33643cb45a1b3, type: 3}
+      propertyPath: burntAnim.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 34853e1e5294f42ab93983feaac5f9a6, type: 2}
+    - target: {fileID: 4016002495862216149, guid: c4e2f31c4b81a5428bc33643cb45a1b3, type: 3}
+      propertyPath: burntAnim.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9bee8aa271f904243be772f8443e01e9, type: 2}
+    - target: {fileID: 4016002495862216149, guid: c4e2f31c4b81a5428bc33643cb45a1b3, type: 3}
+      propertyPath: burntAnim.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 247f29a608c684ce4817b0e1aef8ceff, type: 2}
     - target: {fileID: 4016002495862216151, guid: c4e2f31c4b81a5428bc33643cb45a1b3, type: 3}
       propertyPath: m_RootOrder
       value: 1

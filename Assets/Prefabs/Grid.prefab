@@ -188,7 +188,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c53b29dd9211d44cea564a90d06417a3, type: 2}
   - {fileID: 11400000, guid: ad5f86bdc3d5448c492c8f9fb76fe239, type: 2}
   - {fileID: 11400000, guid: 824f1af17e3d64b33bf8ffb45822f43b, type: 2}
-  burntTile: {fileID: 11400000, guid: 7a792080f07b8494c97c828f03f2e8ff, type: 2}
+  burntTile: {fileID: 11400000, guid: 934452cb1b0a84a99978272f8dffdb9a, type: 2}
 --- !u!114 &4016002495862216144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +215,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b9aabddb8d1524e76a0c0905e0ecfb1d, type: 2}
   - {fileID: 11400000, guid: 40f5be912f63341a18a71afd34c03d70, type: 2}
   - {fileID: 11400000, guid: d8d49512909474b9cab8df8685b0622c, type: 2}
+  fireballAnim:
+  - {fileID: 11400000, guid: 34853e1e5294f42ab93983feaac5f9a6, type: 2}
+  - {fileID: 11400000, guid: 9bee8aa271f904243be772f8443e01e9, type: 2}
+  - {fileID: 11400000, guid: 247f29a608c684ce4817b0e1aef8ceff, type: 2}
   invalid: {fileID: 8300000, guid: a1724c6e7328e7a62af814d976530e50, type: 3}
   placeTile: {fileID: 8300000, guid: 4f6a5aee67f10419cba25efc8e76c99d, type: 3}
   replaceTile: {fileID: 8300000, guid: bc7c863b499fa421599502995d58d360, type: 3}
